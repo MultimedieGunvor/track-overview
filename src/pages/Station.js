@@ -1,16 +1,7 @@
-import { collection, addDoc } from "firebase/firestore";
+import AddAda from "../components/addAdaLovelace";
 
 
-export default async function Station() {
+export default function Station() {
     
-    try {
-        const docRef = await addDoc(collection(db, "wagons"), {
-            first: "Ada",
-            last: "Lovelace",
-            born: 1815
-        });
-        console.log("Documentwritten with ID: ", docRef.id);
-    } catch (e) {
-        console.error("Error adding document", e);
-    }
+    <AddAda />
 }
