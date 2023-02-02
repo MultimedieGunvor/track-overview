@@ -7,7 +7,8 @@ export default function getWagons() {
 
         const querySnapshot = await getDocs(collection(db, "wagons"));
         querySnapshot.forEach((doc) => {
-            console.log(`${doc.id} => ${doc.data()}`);
+            // console.log(`${doc.id} => ${doc.data()}`);
+            console.log(doc.id, " => ", doc.data());
         });
     }
 
