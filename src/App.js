@@ -1,7 +1,9 @@
 import React from 'react';
-import './App.css';
 
 import Station from './pages/Station';
+
+// styles
+import './App.css';
 
 function App() {
   return (
