@@ -5,7 +5,7 @@ import { useState } from "react";
 export default function GetWagons() {
 
     const [Wagons, SetWagons] = useState([]);
-    // const [state, setState] = useState(Wagons); <--- Prøv dette efter frokost
+    const [state, setState] = useState(Wagons); //<--- Prøv dette efter frokost
 
     async function getAllWagons() {
 
@@ -15,7 +15,7 @@ export default function GetWagons() {
             SetWagons(Wagons);
             // console.log(doc.id, " => ", doc.data());
             console.log(Wagons);
-            // setState(Wagons); <--------- Prøv dette efter frokost
+            setState(Wagons); // <--------- Prøv dette efter frokost
         });
     }
 
@@ -23,19 +23,18 @@ export default function GetWagons() {
         <>
             
             <button onClick={getAllWagons}>Show wagons</button>
-            {/* {Wagons.length === 0 ? (
+            {Wagons.length === 0 ? (
                 <p>No wagons in database</p>
             ) : (
                 state.map((item) => (
                     <div className="single-wagon" key={item.id}>
-                        <p>{item.data.first}</p>
-                        <p>{item.data.middle}</p>
-                        <p>{item.data.last}</p>
-                        <p>{item.data.born}</p>
+                        <p>{item.first}</p>
+                        <p>{item.middle}</p>
+                        <p>{item.last}</p>
+                        <p>{item.born}</p>
                     </div>
                 ))
-            )}<------ Prøv dette efter frokost */}
-
+            )} {/* <------ Prøv dette efter frokost */}
         </>
     )
 }
