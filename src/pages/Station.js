@@ -1,5 +1,5 @@
-import AddAda from "../components/AddAdaLovelace";
-import GetWagons from "../components/GetWagons";
+import AddAda from "../components/addAdaLovelace";
+import GetWagons from "../components/getWagons";
 
 
 export default function Station() {
