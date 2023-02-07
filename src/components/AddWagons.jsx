@@ -1,7 +1,6 @@
 import { collection, addDoc, Timestamp } from "firebase/firestore";
-import { db, storage } from "../firebaseConfig";
+import { db } from "../firebaseConfig";
 import React, { useState } from "react";
-// import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 
 export default function AddWagons () {
     const [formData, setFormData] = useState({
@@ -28,7 +27,6 @@ export default function AddWagons () {
             return;
         }
 
-        // const storageRef = ref(storage)
         const wagonRef = collection(db, "wagons");
         addDoc(wagonRef, {
             wagonId: formData.wagonId,

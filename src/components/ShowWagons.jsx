@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
-import { collection, onSnapshot, orderBy, query, getDocs } from "firebase/firestore";
+import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import { db } from "../firebaseConfig";
+import DeleteWagon from "./DeleteWagon";
 
 export default function ShowWagons() {
 
     const [Wagons, SetWagons] = useState([]);
     useEffect(() => {
         const wagonRef = collection(db, "wagons");
-        // const wagonRef = await getDocs(collection(db, "wagons"));
         const q = query(wagonRef, orderBy("createdAt", "desc")); // Maybe change this to order by track?? Or position??
         onSnapshot(q, (snapshot) => {
             const wagons = snapshot.docs.map((doc) => ({
@@ -36,6 +36,7 @@ export default function ShowWagons() {
                             <p>{comment}</p>
                             <p>{track}</p>
                             <p>{position}</p>
+                            <DeleteWagon id={id}/>
                         </div>
                     )
                 )
