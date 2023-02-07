@@ -11,7 +11,9 @@ body {
 /* --- Header styling --- */
 header {
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.07), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  color: #212529;
+  /* color: #212529; */
+  color: #9698de;
+  background-color: #03045e;
 }
 
 .nav-area {
@@ -20,13 +22,21 @@ header {
   max-width: 1200px;
   margin: 0 auto;
   padding: 10px 20px;
+  /* color: #9698de;
+  background-color: #03045e; */
 }
 
 .logo {
   text-decoration: none;
-  font-size: 25px;
+  font-size: 15px;
   color: inherit;
   margin-right: 20px;
+  display: flex;
+}
+
+.logo h3 {
+  margin: 0 5px;
+  color: #9698de;
 }
 
 .menus {

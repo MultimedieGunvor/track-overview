@@ -1,0 +1,9 @@
+<svg id="New" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
+  <g id="Ellipse_43" data-name="Ellipse 43" fill="#d0d1ee" stroke="#d0d1ee" stroke-width="1">
+    <circle cx="25" cy="25" r="25" stroke="none"/>
+    <circle cx="25" cy="25" r="24.5" fill="none"/>
+  </g>
+  <g id="File" transform="translate(17.5 14.5)">
+    <path id="Path_17" data-name="Path 17" d="M10.144,0H0V20H15.595V5.451Zm4.117,18.667H1.333V1.333H8.6V7.067h5.664v11.6ZM9.931,5.733V1.672l4.061,4.061Z" fill="#fff"/>
+  </g>
+</svg>

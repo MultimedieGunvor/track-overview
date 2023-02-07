@@ -1,0 +1,10 @@
+<svg id="Group_36" data-name="Group 36" xmlns="http://www.w3.org/2000/svg" width="13.396" height="18.618" viewBox="0 0 13.396 18.618">
+  <path id="Path_83" data-name="Path 83" d="M10.246,15.282h-7.1A3.155,3.155,0,0,1,0,12.131V3.151A3.155,3.155,0,0,1,3.151,0h7.1A3.155,3.155,0,0,1,13.4,3.151v8.981A3.155,3.155,0,0,1,10.246,15.282ZM3.151,1.265a1.9,1.9,0,0,0-1.9,1.9v8.981a1.9,1.9,0,0,0,1.9,1.9h7.1a1.9,1.9,0,0,0,1.9-1.9V3.151a1.9,1.9,0,0,0-1.9-1.9h-7.1Z" fill="#9698de"/>
+  <path id="Path_84" data-name="Path 84" d="M9.044,7.572H3.3A1.146,1.146,0,0,1,2.16,6.43V4.061A1.146,1.146,0,0,1,3.3,2.92H9.044a1.146,1.146,0,0,1,1.141,1.141V6.43A1.146,1.146,0,0,1,9.044,7.572ZM3.425,6.306H8.92V4.2H3.438V6.306Z" transform="translate(0.519 0.702)" fill="#9698de"/>
+  <circle id="Ellipse_11" data-name="Ellipse 11" cx="1.042" cy="1.042" r="1.042" transform="translate(7.963 10.109)" fill="#9698de"/>
+  <circle id="Ellipse_12" data-name="Ellipse 12" cx="1.042" cy="1.042" r="1.042" transform="translate(3.287 10.109)" fill="#9698de"/>
+  <g id="Group_35" data-name="Group 35" transform="translate(1.542 14.209)">
+    <rect id="Rectangle_19" data-name="Rectangle 19" width="1.265" height="4.366" transform="matrix(0.863, -0.506, 0.506, 0.863, 7.018, 0.64)" fill="#9698de"/>
+    <rect id="Rectangle_20" data-name="Rectangle 20" width="4.366" height="1.265" transform="matrix(0.506, -0.863, 0.863, 0.506, 0, 3.77)" fill="#9698de"/>
+  </g>
+</svg>

@@ -1,0 +1,9 @@
+<svg id="Copy" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
+  <g id="Ellipse_43" data-name="Ellipse 43" fill="#d0d1ee" stroke="#d0d1ee" stroke-width="1">
+    <circle cx="25" cy="25" r="25" stroke="none"/>
+    <circle cx="25" cy="25" r="24.5" fill="none"/>
+  </g>
+  <g id="Copy_2" data-name="Copy 2" transform="translate(16.92 15)">
+    <path id="Subtraction_7" data-name="Subtraction 7" d="M13,20H0V3.333H3.111V0h8.454l4.542,4.542V16.667H13V20ZM1.111,4.444h0V18.889H11.884v-.445h0V13.778h0V9.222H7.164V4.444H1.111Zm9.9,1.444L13,7.875v7.68h2V5.889H11.009ZM8.275,4.727h0V8.111h3.384ZM4.222,1.111V3.333H8.453l1.822,1.822V1.111Zm7.164.282V4.778h3.384L11.386,1.393Z" fill="#fff"/>
+  </g>
+</svg>
