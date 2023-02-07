@@ -66,7 +66,7 @@ const MenuItems = ({ items }) => {
             aria-expanded={dropdown ? "true" : "false"} 
             onClick={() => setDropdown((prev) => !prev)}
             >
-              <img src={items.icon} />
+              <img src={items.icon} alt={items.title}/>
               {items.title}{' '}
             </button>
             {/* passing the "submenu" items via the prop so they can be accessed by Dropdown*/}
@@ -75,7 +75,7 @@ const MenuItems = ({ items }) => {
           </>
         ) : (
           <Link to={items.url}>
-            <img src={items.icon} />
+            <img src={items.icon} alt={items.title} />
             {items.title}</Link>
         )}
       </li>
