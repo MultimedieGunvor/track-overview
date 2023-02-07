@@ -1,0 +1,8 @@
+<svg id="Browse" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
+  <circle id="Ellipse_43" data-name="Ellipse 43" cx="25" cy="25" r="25" fill="#d0d1ee"/>
+  <g id="Browse1" transform="translate(17.653 16)">
+    <g id="Group_1" data-name="Group 1">
+      <path id="Union_6" data-name="Union 6" d="M7.285,17.283H0V15.8H6.843a4.658,4.658,0,0,1-.045-.616,4.805,4.805,0,0,1,.371-1.851H0V11.851H8.147a4.811,4.811,0,0,1,8.059,4.781l3.32,1.992h0l-.762,1.269L15.539,17.96a4.8,4.8,0,0,1-8.253-.677Zm.995-2.1a3.333,3.333,0,1,0,3.333-3.333A3.338,3.338,0,0,0,8.28,15.184ZM0,9.384V7.9H13.957V9.384ZM0,5.432V3.949H13.957V5.432ZM0,1.483V0H13.957V1.483Z" fill="#fff"/>
+    </g>
+  </g>
+</svg>

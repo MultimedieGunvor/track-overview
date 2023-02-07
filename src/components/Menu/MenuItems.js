@@ -57,6 +57,7 @@ const MenuItems = ({ items }) => {
         onMouseLeave={onMouseLeave}
         onClick={closeDropdown}
       >
+        {/* <img src={items.icon} /> */}
         {items.submenu ? (
           <>
             {/* using the button element to open the dropdown menu */}
@@ -65,6 +66,7 @@ const MenuItems = ({ items }) => {
             aria-expanded={dropdown ? "true" : "false"} 
             onClick={() => setDropdown((prev) => !prev)}
             >
+              <img src={items.icon} alt={items.title}/>
               {items.title}{' '}
             </button>
             {/* passing the "submenu" items via the prop so they can be accessed by Dropdown*/}
@@ -72,7 +74,9 @@ const MenuItems = ({ items }) => {
             <Dropdown submenus={items.submenu} dropdown={dropdown} />
           </>
         ) : (
-          <Link to={items.url}>{items.title}</Link>
+          <Link to={items.url}>
+            <img src={items.icon} alt={items.title} />
+            {items.title}</Link>
         )}
       </li>
     );
