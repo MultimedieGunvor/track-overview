@@ -101,6 +101,7 @@ export default function AddWagons () {
                 </div>
 
                 <div className="destination-input">
+                    <legend>Destination</legend>
                     <select
                     name="destination"
                     className="destination-select"
@@ -133,6 +134,7 @@ export default function AddWagons () {
                 </div>
 
                 <div className="damage-input">
+                    <legend>Damage</legend>
                     <select
                     name="damage"
                     className="damage-select"
