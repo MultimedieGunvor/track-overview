@@ -3,16 +3,15 @@ import { Routes, Route } from 'react-router-dom';
 
 // Routes Import
 // import Station from './routes/Station';
-import Booking from './routes/Booking';
-import Train from './routes/Train';
-import ShowWagon from './routes/ShowWagon';
-import ShowWagonTrace from './routes/ShowWagonTrace';
-import ShowTransportBooking from './routes/ShowTransportBooking';
-import Util from './routes/Util';
-import Help from './routes/Help';
-import Layout from './components/Menu/Layout';
-
 import Station from './pages/Station';
+import Booking from './pages/Booking';
+import Train from './pages/Train';
+import ShowWagon from './pages/ShowWagon';
+import ShowWagonTrace from './pages/ShowWagonTrace';
+import ShowTransportBooking from './pages/ShowTransportBooking';
+import Util from './pages/Util';
+import Help from './pages/Help';
+import Layout from './components/Menu/Layout';
 
 // styles
 import './App.css';
@@ -22,7 +21,7 @@ function App() {
     <main>
       <Routes>
         <Route path="/" element={<Layout />}>
-          {/* <Route index element={<Station />} /> */}
+          <Route index element={<Station />} />
           <Route path="booking" element={<Booking />} />
           <Route path="train" element={<Train />} />
           <Route path="show-wagon" element={<ShowWagon />} />
@@ -32,8 +31,6 @@ function App() {
           <Route path="help" element={<Help />} />
         </Route>
       </Routes>
-
-      <Station />
     </main>
   );
 }
