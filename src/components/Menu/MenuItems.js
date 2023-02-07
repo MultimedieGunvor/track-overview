@@ -57,7 +57,6 @@ const MenuItems = ({ items }) => {
         onMouseLeave={onMouseLeave}
         onClick={closeDropdown}
       >
-        {/* <img src={items.icon} /> */}
         {items.submenu ? (
           <>
             {/* using the button element to open the dropdown menu */}
