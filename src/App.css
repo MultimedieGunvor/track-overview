@@ -95,7 +95,7 @@ button span {
 .menu-items a:hover,
 .menu-items button:hover,
 .menu-items img:hover {
-  filter: brightness(0) saturate(100%) invert(99%) sepia(2%) saturate(319%) hue-rotate(334deg) brightness(116%) contrast(100%);
+  filter: brightness(0) saturate(100%) invert(85%) sepia(96%) saturate(6268%) hue-rotate(180deg) brightness(101%) contrast(86%);
 }
 .active-tab {
   filter: brightness(0) saturate(100%) invert(99%) sepia(2%) saturate(319%) hue-rotate(334deg) brightness(116%) contrast(100%);
