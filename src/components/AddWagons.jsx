@@ -42,6 +42,8 @@ export default function AddWagons () {
         })
         .then(() => {
             console.log("Wagon added successfully");
+
+            // Add a setFormData to clear the form
         })
         .catch((err) => {
             console.error("Error. Wagon not added.", err);
