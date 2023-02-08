@@ -2,7 +2,7 @@
 
 import Dropdown from "./Dropdown";
 import { useState,useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 // receiving the menu items data via the items prop
 const MenuItems = ({ items }) => {
@@ -48,6 +48,8 @@ const MenuItems = ({ items }) => {
       dropdown && setDropdown(false);
     };
 
+    const location = useLocation();
+
 
     return (
 
@@ -73,7 +75,11 @@ const MenuItems = ({ items }) => {
             <Dropdown submenus={items.submenu} dropdown={dropdown} />
           </>
         ) : (
-          <Link to={items.url}>
+          location.pathname === items.url ?
+          <Link to={items.url} className="active-tab">
+            <img src={items.icon} alt={items.title} />
+            {items.title}</Link> :
+            <Link to={items.url}>
             <img src={items.icon} alt={items.title} />
             {items.title}</Link>
         )}
