@@ -7,6 +7,11 @@
   --darkViolet: #03045e;
   --mediumViolet: #9698de;
   --lightViolet: #d0d1ee;
+  --xtraLightGrey: #f9f9fb;
+  --lightGrey: #eeedf2;
+  --mediumGrey: #cccccc;
+  --darkGrey: #999999;
+  --black: #333333;
 }
 
 body {
@@ -83,8 +88,9 @@ button span {
 }
 
 .menu-items a:hover,
-.menu-items button:hover {
-  background-color: #f2f2f2;
+.menu-items button:hover,
+.menu-items img:hover {
+  color: #f2f2f2;
 }
 
 

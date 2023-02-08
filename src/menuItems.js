@@ -5,6 +5,7 @@ import util from "../src/graphics/Util.svg";
 import help from "../src/graphics/Help.svg";
 import user from "../src/graphics/User.svg";
 import wagon from "../src/graphics/Wagon.svg";
+// import User2 from "../src/graphics/User";
 
 export const menuItems = [
   {

@@ -53,7 +53,7 @@ const MenuItems = ({ items }) => {
 
       // we use the "useRef" to access the DOM elements of the dropdown by passing a reference object to the target node
       <li className="menu-items" ref={ref}
-        onMouseEnter={onMouseEnter}
+        onMouseEnter={onMouseEnter} 
         onMouseLeave={onMouseLeave}
         onClick={closeDropdown}
       >
