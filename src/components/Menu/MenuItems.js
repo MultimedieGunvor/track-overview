@@ -60,20 +60,35 @@ const MenuItems = ({ items }) => {
         onClick={closeDropdown}
       >
         {items.submenu ? (
+
+          // --- Trying to apply className to Wagon button when one of the wagon submenus is the active location. So far doesn't work.
+          // location.pathname === items.url ?
+          // <>
+          //   <button type="button" aria-haspopup="menu" 
+          //   aria-expanded={dropdown ? "true" : "false"} 
+          //   onClick={() => setDropdown((prev) => !prev)}
+          //   className="active-tab"
+          //   >
+          //     <img src={items.icon} alt={items.title}/>
+          //     {items.title}{' '}
+          //   </button>
+          //   <Dropdown submenus={items.submenu} dropdown={dropdown} />
+          // </>
+          // : 
           <>
-            {/* using the button element to open the dropdown menu */}
-            <button type="button" aria-haspopup="menu" 
-            // the "aria-expanded" attribute indicates if a dropdown box is expanded or collapsed
-            aria-expanded={dropdown ? "true" : "false"} 
-            onClick={() => setDropdown((prev) => !prev)}
-            >
-              <img src={items.icon} alt={items.title}/>
-              {items.title}{' '}
-            </button>
-            {/* passing the "submenu" items via the prop so they can be accessed by Dropdown*/}
-            {/* passing the "dropdown" variable to the "Dropdown" component as a prop so we can handle the dropdown toggle */}
-            <Dropdown submenus={items.submenu} dropdown={dropdown} />
-          </>
+          {/* using the button element to open the dropdown menu */}
+          <button type="button" aria-haspopup="menu" 
+          // the "aria-expanded" attribute indicates if a dropdown box is expanded or collapsed
+          aria-expanded={dropdown ? "true" : "false"} 
+          onClick={() => setDropdown((prev) => !prev)}
+          >
+            <img src={items.icon} alt={items.title}/>
+            {items.title}{' '}
+          </button>
+          {/* passing the "submenu" items via the prop so they can be accessed by Dropdown*/}
+          {/* passing the "dropdown" variable to the "Dropdown" component as a prop so we can handle the dropdown toggle */}
+          <Dropdown submenus={items.submenu} dropdown={dropdown} />
+        </>
         ) : (
           location.pathname === items.url ?
           <Link to={items.url} className="active-tab">
