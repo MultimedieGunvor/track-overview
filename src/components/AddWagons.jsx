@@ -42,6 +42,18 @@ export default function AddWagons () {
         })
         .then(() => {
             console.log("Wagon added successfully");
+            setFormData({
+                wagonId: "",
+                shortId: "",
+                litra: "",
+                color: "",
+                destination: "",
+                damage: "",
+                comment: "",
+                track: "",
+                position:"",
+                createdAt: Timestamp.now().toDate(),
+            });
 
             // Add a setFormData to clear the form
         })
