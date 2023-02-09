@@ -5,7 +5,7 @@ import React, { useState } from "react";
 export default function AddWagons () {
     const [formData, setFormData] = useState({
         wagonId: "",
-        shortId: "", // Generate from last five digits of wagonId. Use indexOf??
+        shortId: "",
         litra: "",
         color: "",
         destination: "",
@@ -22,15 +22,20 @@ export default function AddWagons () {
     };
 
     const handlePublish = () => {
-        if (!formData.wagonId || !formData.shortId || !formData.litra || !formData.color || !formData.track || !formData.position) {
-            alert("Please assign id, short id, litra, color, track and position to wagon");
+        if (!formData.wagonId || !formData.litra || !formData.color || !formData.track || !formData.position) {
+            alert("Please assign id, litra, color, track and position to wagon");
             return;
         }
 
+
+        // Generate short id from wagon id
+        const firstShort = formData.wagonId.slice(-5, -1);
+        const lastShort = formData.wagonId.slice(-1);
+
         const wagonRef = collection(db, "wagons");
         addDoc(wagonRef, {
-            wagonId: formData.wagonId,
-            shortId: formData.shortId, // Generate from last five digits of wagonId. Use indexOf??
+            wagonId: formData.wagonId, 
+            shortId: firstShort + "-" + lastShort,
             litra: formData.litra,
             color: formData.color,
             destination: formData.destination,
@@ -42,6 +47,7 @@ export default function AddWagons () {
         })
         .then(() => {
             console.log("Wagon added successfully");
+            // Clear form after submitting
             setFormData({
                 wagonId: "",
                 shortId: "",
@@ -51,11 +57,10 @@ export default function AddWagons () {
                 damage: "",
                 comment: "",
                 track: "",
-                position:"",
+                position: "",
                 createdAt: Timestamp.now().toDate(),
             });
 
-            // Add a setFormData to clear the form
         })
         .catch((err) => {
             console.error("Error. Wagon not added.", err);
@@ -64,7 +69,6 @@ export default function AddWagons () {
 
     return (
         <>
-            {/* <button onClick={AddWagons}>Add wagons</button> */}
 
             <div className="wagon-form">
                 <h2>Add a wagon</h2>
@@ -79,7 +83,7 @@ export default function AddWagons () {
                     />
                 </div>
 
-                <div className="short-id-input">
+                {/* <div className="short-id-input">
                     <input
                     type="text"
                     name="shortId"
@@ -88,7 +92,7 @@ export default function AddWagons () {
                     placeholder="Short ID"
                     onChange={(e) => handleChange(e)}
                     />
-                </div>
+                </div> */}
 
                 <div className="litra-input">
                     <input
@@ -121,6 +125,7 @@ export default function AddWagons () {
                     placeholder="Select destination"
                     onChange={(e) => handleChange(e)}
                     >
+                        <option placeholder="Placeholder"></option>
                         <option value="Alnabru">Alnabru</option>
                         <option value="Trondheim">Trondheim</option>
                         <option value="Bergen">Bergen</option>
@@ -186,6 +191,8 @@ export default function AddWagons () {
                 <div className="position-input">
                     <input
                     type="number"
+                    min="1"
+                    max="25"
                     name="position"
                     className="inputfield"
                     value={formData.position}
