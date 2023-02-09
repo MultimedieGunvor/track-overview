@@ -16,8 +16,9 @@ export default function ShowWagons() {
             }));
             SetWagons(wagons);
             console.log(wagons);
-        });
+        }); 
     }, []);
+
 
     return (
         <div className="wagons">
@@ -26,7 +27,7 @@ export default function ShowWagons() {
             ) : (
                 Wagons.map(
                     ({ id, wagonId, shortId, litra, color, destination, damage, comment, track, position }) => (
-                        <div className="wagon" key={id}>
+                        <div className={`wagon ${color}`} key={id} >
                             <p>{wagonId}</p>
                             <p>{shortId}</p>
                             <p>{litra}</p>

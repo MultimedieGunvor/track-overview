@@ -21,16 +21,17 @@ export default function AddWagons () {
         console.log(formData);
     };
 
+
     const handlePublish = () => {
         if (!formData.wagonId || !formData.litra || !formData.color || !formData.track || !formData.position) {
             alert("Please assign id, litra, color, track and position to wagon");
             return;
         }
 
-
         // Generate short id from wagon id
         const firstShort = formData.wagonId.slice(-5, -1);
         const lastShort = formData.wagonId.slice(-1);
+
 
         const wagonRef = collection(db, "wagons");
         addDoc(wagonRef, {
@@ -83,29 +84,45 @@ export default function AddWagons () {
                     />
                 </div>
 
-                {/* <div className="short-id-input">
-                    <input
-                    type="text"
-                    name="shortId"
-                    className="inputfield"
-                    value={formData.shortId}
-                    placeholder="Short ID"
-                    onChange={(e) => handleChange(e)}
-                    />
-                </div> */}
-
                 <div className="litra-input">
-                    <input
-                    type="text"
+                    <legend>Litra</legend>
+                    <select
                     name="litra"
-                    className="inputfield"
+                    className="litra-select"
                     value={formData.litra}
-                    placeholder="Litra"
                     onChange={(e) => handleChange(e)}
-                    />
+                    >
+                        <option placeholder="Placeholder"></option>
+                        <option value="Sdggmrss">Sdggmrss</option>
+                        <option value="Sggmrs">Sggmrs</option>
+                        <option value="Rs">Rs</option>
+                        <option value="Sdggmrs-L">Sdggmrs-L</option>
+                        <option value="Laaprs">Laaprs</option>
+                        <option value="Sdggmrs-T">Sdggmrs-T</option>
+                        <option value="Sdggmrs-T">Sdggmrs</option>
+                    </select>
                 </div>
 
-                <div className="color-input"> {/*Written as a hex code, which can then be inserted into an svg file.*/}
+                <div className="color-input">
+                    <legend>Color</legend>
+                    <select
+                    name="color"
+                    className="color-select"
+                    value={formData.color}
+                    onChange={(e) => handleChange(e)}
+                    >
+                        <option placeholder="Placeholder"></option>
+                        <option value="bee3ed">Light blue</option>
+                        <option value="468faf">Blue</option>
+                        <option value="dbe599">Light green</option>
+                        <option value="a5be00">Green</option>
+                        <option value="daed0d">Light olive</option>
+                        <option value="a3b18a">Olive</option>
+                    </select>
+                </div>
+
+
+                {/* <div className="color-input"> 
                     <input
                     type="text"
                     name="color"
@@ -114,7 +131,7 @@ export default function AddWagons () {
                     placeholder="Color hex code"
                     onChange={(e) => handleChange(e)}
                     />
-                </div>
+                </div> */}
 
                 <div className="destination-input">
                     <legend>Destination</legend>
@@ -178,27 +195,79 @@ export default function AddWagons () {
                 </div>
 
                 <div className="track-input">
-                    <input
-                    type="text"
+                    <legend>Track</legend>
+                    <select
                     name="track"
-                    className="inputfield"
+                    className="track-select"
                     value={formData.track}
-                    placeholder="Track"
                     onChange={(e) => handleChange(e)}
-                    />
+                    >
+                        <option placeholder="Placeholder"></option>
+                        <option value="c31">C31</option>
+                        <option value="c16">C16</option>
+                        <option value="c14">C14</option>
+                        <option value="c13">C13</option>
+                        <option value="c8">C8</option>
+                        <option value="c7">C7</option>
+                        <option value="r47">R47</option>
+                        <option value="r46">R46</option>
+                        <option value="r45">R45</option>
+                        <option value="r44">R44</option>
+                        <option value="r43">R43</option>
+                        <option value="r42">R42</option>
+                        <option value="r41">R41</option>
+                        <option value="r38">R38</option>
+                        <option value="r37">R37</option>
+                        <option value="r36">R36</option>
+                        <option value="r18">R18</option>
+                        <option value="r17">R17</option>
+                        <option value="r16">R16</option>
+                        <option value="r15">R15</option>
+                        <option value="r14">R14</option>
+                        <option value="r13">R13</option>
+                        <option value="r12">R12</option>
+                        <option value="r11">R11</option>
+                        <option value="r54">R54</option>
+                        <option value="industrispor">Industrispor</option>
+                        <option value="other">Other</option>
+                    </select>
                 </div>
 
                 <div className="position-input">
-                    <input
-                    type="number"
-                    min="1"
-                    max="25"
+                    <legend>Position</legend>
+                    <select
                     name="position"
-                    className="inputfield"
+                    className="position-select"
                     value={formData.position}
-                    placeholder="Position"
                     onChange={(e) => handleChange(e)}
-                    />
+                    >
+                        <option placeholder="Placeholder"></option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                        <option value="25">25</option>
+                    </select>
                 </div>
 
                 <button 
