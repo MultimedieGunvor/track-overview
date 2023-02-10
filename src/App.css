@@ -12,6 +12,11 @@
   --mediumGrey: #cccccc;
   --darkGrey: #999999;
   --black: #333333;
+
+  /* Background color for comment fields of damaged wagons */
+  --mild: #cccccc;
+  --medium: #b588f4;
+  --critical: #eb616b;
 }
 
 body {

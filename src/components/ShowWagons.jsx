@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import { db } from "../firebaseConfig";
 import DeleteWagon from "./DeleteWagon";
+import WagonModal from "../components/WagonModal";
 
 export default function ShowWagons() {
 
@@ -20,6 +21,18 @@ export default function ShowWagons() {
     }, []);
 
 
+    // Modals to open on hover. They are not done
+    const [show, setShow] = useState(false);
+
+    const openModal = () => {
+        setShow(true);
+    };
+
+    const closeModal = () => {
+        setShow(false);
+    };
+ 
+
     return (
         <div className="wagons">
             {Wagons.length === 0 ? (
@@ -27,17 +40,19 @@ export default function ShowWagons() {
             ) : (
                 Wagons.map(
                     ({ id, wagonId, shortId, litra, color, destination, damage, comment, track, position }) => (
-                        <div className={`wagon ${color}`} key={id} >
-                            <p>{wagonId}</p>
+                        <div className={`wagon ${color}`} key={id} onMouseEnter={openModal} onMouseLeave={closeModal}>
                             <p>{shortId}</p>
-                            <p>{litra}</p>
-                            <p>{color}</p>
-                            <p>{destination}</p>
-                            <p>{damage}</p>
-                            <p>{comment}</p>
-                            <p>{track}</p>
-                            <p>{position}</p>
                             <DeleteWagon id={id}/>
+                            <WagonModal onClose={closeModal} show={show} >
+                                <p>{wagonId}</p>
+                                <p>{litra}</p>
+                                {/* <p>{color}</p> */}
+                                <p>{destination}</p>
+                                <p>{damage}</p>
+                                <p>{comment}</p>
+                                <p>{track}</p>
+                                <p>{position}</p>                                
+                            </WagonModal>
                         </div>
                     )
                 )

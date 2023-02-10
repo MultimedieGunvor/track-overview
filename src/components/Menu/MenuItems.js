@@ -48,7 +48,7 @@ const MenuItems = ({ items }) => {
       dropdown && setDropdown(false);
     };
 
-    const location = useLocation();
+    const location = useLocation(); // Used when determining the active tab
 
 
     return (

@@ -122,17 +122,6 @@ export default function AddWagons () {
                 </div>
 
 
-                {/* <div className="color-input"> 
-                    <input
-                    type="text"
-                    name="color"
-                    className="inputfield"
-                    value={formData.color}
-                    placeholder="Color hex code"
-                    onChange={(e) => handleChange(e)}
-                    />
-                </div> */}
-
                 <div className="destination-input">
                     <legend>Destination</legend>
                     <select
