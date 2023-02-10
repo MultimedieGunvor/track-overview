@@ -60,27 +60,13 @@ const MenuItems = ({ items }) => {
         onClick={closeDropdown}
       >
         {items.submenu ? (
-
-          // --- Trying to apply className to Wagon button when one of the wagon submenus is the active location. So far doesn't work.
-          // location.pathname === items.url ?
-          // <>
-          //   <button type="button" aria-haspopup="menu" 
-          //   aria-expanded={dropdown ? "true" : "false"} 
-          //   onClick={() => setDropdown((prev) => !prev)}
-          //   className="active-tab"
-          //   >
-          //     <img src={items.icon} alt={items.title}/>
-          //     {items.title}{' '}
-          //   </button>
-          //   <Dropdown submenus={items.submenu} dropdown={dropdown} />
-          // </>
-          // : 
           <>
           {/* using the button element to open the dropdown menu */}
           <button type="button" aria-haspopup="menu" 
           // the "aria-expanded" attribute indicates if a dropdown box is expanded or collapsed
           aria-expanded={dropdown ? "true" : "false"} 
           onClick={() => setDropdown((prev) => !prev)}
+          className={location.pathname === "/show-wagon" || location.pathname === "/show-wagon-trace" || location.pathname === "/show-transport-booking" ? "active-tab" : ""}
           >
             <img src={items.icon} alt={items.title}/>
             {items.title}{' '}
@@ -89,14 +75,14 @@ const MenuItems = ({ items }) => {
           {/* passing the "dropdown" variable to the "Dropdown" component as a prop so we can handle the dropdown toggle */}
           <Dropdown submenus={items.submenu} dropdown={dropdown} />
         </>
+
         ) : (
-          location.pathname === items.url ?
-          <Link to={items.url} className="active-tab">
-            <img src={items.icon} alt={items.title} />
-            {items.title}</Link> :
-            <Link to={items.url}>
-            <img src={items.icon} alt={items.title} />
-            {items.title}</Link>
+
+          <Link to={items.url} className={location.pathname === items.url ? "active-tab" : ""}>
+          <img src={items.icon} alt={items.title} />
+          {items.title}
+          </Link>
+
         )}
       </li>
     );
