@@ -170,19 +170,19 @@ button span {
   margin-right: 10px;
 }
 
-.blue {
+.Blue {
   background-image: url("../src/graphics/WagonBlue.svg");
   background-repeat: no-repeat;
 }
-.green {
+.Green {
   background-image: url("../src/graphics/WagonGreen.svg");
   background-repeat: no-repeat;
 }
-.lgreen {
+.Lgreen {
   background-image: url("../src/graphics/WagonLgreen.svg");
   background-repeat: no-repeat;
 }
-.olive {
+.Olive {
   background-image: url("../src/graphics/WagonOlive.svg");
   background-repeat: no-repeat;
 }

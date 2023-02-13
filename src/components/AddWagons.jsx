@@ -112,12 +112,12 @@ export default function AddWagons () {
                     onChange={(e) => handleChange(e)}
                     >
                         <option placeholder="Placeholder"></option>
-                        <option value="lblue">Light blue</option>
-                        <option value="blue">Blue</option>
-                        <option value="lgreen">Light green</option>
-                        <option value="green">Green</option>
-                        <option value="lolive">Light olive</option>
-                        <option value="olive">Olive</option>
+                        <option value="Lblue">Light blue</option>
+                        <option value="Blue">Blue</option>
+                        <option value="Lgreen">Light green</option>
+                        <option value="Green">Green</option>
+                        <option value="Lolive">Light olive</option>
+                        <option value="Olive">Olive</option>
                     </select>
                 </div>
 
