@@ -186,3 +186,8 @@ button span {
   background-image: url("../src/graphics/WagonOlive.svg");
   background-repeat: no-repeat;
 }
+
+/* --- Station tab table styling --- */
+.wagon tr:nth-child(n) {
+  border-bottom: solid 2px green;
+}
