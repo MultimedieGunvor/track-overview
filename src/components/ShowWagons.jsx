@@ -67,8 +67,8 @@ export default function ShowWagons() {
                 ) : (
                     Wagons.map(
                         ({ id, wagonId, shortId, litra, color, destination, damage, comment, track, position }) => (
-                            <tr className={`wagon ${color}`} key={id} onMouseEnter={openModal} onMouseLeave={closeModal}>
-                                <p>{shortId}</p>
+                            <tr className="wagon" key={id} onMouseEnter={openModal} onMouseLeave={closeModal}>
+                                <p className={color}>{shortId}</p>
                                 <DeleteWagon id={id}/>
                                 <WagonModal onClose={closeModal} show={show} >
                                     <td>Track<br/>{track}<br/>date&time</td>
