@@ -2,7 +2,6 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 // Routes Import
-// import Station from './routes/Station';
 import Station from './pages/Station';
 import Booking from './pages/Booking';
 import Train from './pages/Train';
