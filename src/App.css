@@ -3,7 +3,7 @@
   padding: 0;
   box-sizing: border-box;
 
-  /* --- Colors --- */
+  /* ---  Site colors --- */
   --darkViolet: #03045e;
   --mediumViolet: #9698de;
   --lightViolet: #d0d1ee;
@@ -13,10 +13,19 @@
   --darkGrey: #999999;
   --black: #333333;
 
-  /* Background color for comment fields of damaged wagons */
+  /* --- Background color for comment fields of damaged wagons --- */
   --mild: #cccccc;
   --medium: #b588f4;
   --critical: #eb616b;
+
+  /* --- Wagon colors --- */
+  --blue: #468faf;
+  --lblue: #bee3ed;
+  --green: #a5be00;
+  --lgreen: #daed0d;  
+  --olive: #a3b18a;
+  --lolive: #dbe599;
+  
 }
 
 body {
@@ -159,4 +168,21 @@ button span {
 .content a {
   color: #cc3852;
   margin-right: 10px;
+}
+
+.blue {
+  background-image: url("../src/graphics/WagonBlue.svg");
+  background-repeat: no-repeat;
+}
+.green {
+  background-image: url("../src/graphics/WagonGreen.svg");
+  background-repeat: no-repeat;
+}
+.lgreen {
+  background-image: url("../src/graphics/WagonLgreen.svg");
+  background-repeat: no-repeat;
+}
+.olive {
+  background-image: url("../src/graphics/WagonOlive.svg");
+  background-repeat: no-repeat;
 }

@@ -40,13 +40,12 @@ export default function ShowWagons() {
             ) : (
                 Wagons.map(
                     ({ id, wagonId, shortId, litra, color, destination, damage, comment, track, position }) => (
-                        <div className={`wagon ${color}`} key={id} onMouseEnter={openModal} onMouseLeave={closeModal}>
-                            <p>{shortId}</p>
+                        <div className="wagon" key={id} onMouseEnter={openModal} onMouseLeave={closeModal} id={id}>
+                            <p className={color}>{shortId}</p>
                             <DeleteWagon id={id}/>
-                            <WagonModal onClose={closeModal} show={show} >
+                            <WagonModal show={show} id={id}>
                                 <p>{wagonId}</p>
                                 <p>{litra}</p>
-                                {/* <p>{color}</p> */}
                                 <p>{destination}</p>
                                 <p>{damage}</p>
                                 <p>{comment}</p>
@@ -57,6 +56,7 @@ export default function ShowWagons() {
                     )
                 )
             )}
+            
         </div>
     );
 }
