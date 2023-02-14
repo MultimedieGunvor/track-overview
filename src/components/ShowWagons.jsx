@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import { db } from "../firebaseConfig";
 import DeleteWagon from "./DeleteWagon";
-// import WagonModal from "../components/WagonModal";
 import Table from 'react-bootstrap/Table';
 
 export default function ShowWagons() {
@@ -21,21 +20,6 @@ export default function ShowWagons() {
         }); 
     }, []);
 
-
-    // Modals to open on hover. They are not done
-    // const [show, setShow] = useState(false);
-
-    // const openModal = () => {
-    //     setShow(true);
-    // };
-
-    // const closeModal = () => {
-    //     setShow(false);
-    // };
-
-    // function changeColor(e) {
-    //     e.target.style.color= 'red';
-    // };
 
     // --- Handling info-modal for wagons ---
     
@@ -82,12 +66,10 @@ export default function ShowWagons() {
                 ) : (
                     Wagons.map(
                         ({ id, wagonId, shortId, litra, color, destination, damage, comment, track, position }, i) => (
-                            // <tr className="wagon" key={id}>
                             <tr className="wagon" key={id} onMouseEnter={() => showInfoHandler(i)} onMouseLeave={hideInfoHandler}>
-                            {/* <tr className="wagon" key={id} onMouseEnter={openModal} onMouseLeave={closeModal} onMouseOver={changeColor}> */}
                                 <p className={color}>{shortId}</p>
-                                <DeleteWagon id={id}/>
-                                <div className="wagon-info" onClose={hideInfoHandler} style={{display: hoveredInfo === i ? 'block' : 'none'}} >
+                                {/* <DeleteWagon id={id}/> */}
+                                <div className="wagon-info" style={{display: hoveredInfo === i ? 'block' : 'none'}} >
                                     <td>Track<br/>{track}<br/>date&time</td>
                                     <td>{destination}<br/>{shortId}<br/>{comment}</td>
                                     <td>{wagonId}</td>
@@ -97,18 +79,8 @@ export default function ShowWagons() {
                                     <td>{color}</td>
                                     <td>{damage}</td>
                                     <td>{position}</td>
+                                    <DeleteWagon id={id}/>
                                 </div>
-                                {/* <WagonModal onClose={closeModal} show={show} >
-                                    <td>Track<br/>{track}<br/>date&time</td>
-                                    <td>{destination}<br/>{shortId}<br/>{comment}</td>
-                                    <td>{wagonId}</td>
-                                    <td>{shortId}</td>
-                                    <td>{comment}</td>
-                                    <td>{litra}</td>
-                                    <td>{color}</td>
-                                    <td>{damage}</td>
-                                    <td>{position}</td>
-                                </WagonModal> */}
 
                             </tr>
                         )

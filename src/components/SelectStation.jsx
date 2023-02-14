@@ -1,0 +1,53 @@
+import { useEffect, useState } from "react";
+
+
+export default function SelectStation () {
+    const [value, setValue] = useState('Alnabru');
+
+    const key = 'station';
+
+    const handleChange = (event) => {
+        setValue(event.target.value);
+        localStorage.setItem(key, event.target.value);
+        console.log(localStorage);
+    };
+
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            localStorage.setItem(key, 'Alnabru');
+            console.log(localStorage);
+        }, 100);
+        return () => clearTimeout(timer);
+    }, []);
+
+    return (
+        <div className="select">
+            <legend>{value}</legend> {/* --- Use state to set it --- */}
+            <select value={value} onChange={handleChange}>
+                <option value="Alnabru">Alnabru</option>
+                <option value="Trondheim">Trondheim</option>
+                <option value="Bergen">Bergen</option>
+                <option value="Orstad">Orstad</option>
+                <option value="Heimdal">Heimdal</option>
+                <option value="Sundland">Sundland</option>
+                <option value="Grorud">Grorud</option>
+                <option value="Narvik">Narvik</option>
+                <option value="Kirunavaara">Kirunavaara</option>
+                <option value="Loenga">Loenga</option>
+                <option value="Mjøndalen">Mjøndalen</option>
+                <option value="Hønefoss">Hønefoss</option>
+                <option value="Lillestrøm">Lillestrøm</option>
+                <option value="Hamar">Hamar</option>
+                <option value="Hokksund">Hokksund</option>
+                <option value="Hen">Hen</option>
+                <option value="Älmhult">Älmhult</option>
+                <option value="Hallsberg">Hallsberg</option>
+                <option value="Nordagutu">Nordagutu</option>
+                <option value="Støren">Støren</option>
+                <option value="Daler">Daler</option>
+                <option value="Manage">Manage stations</option>
+            </select>
+        </div>
+    );
+};

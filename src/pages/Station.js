@@ -1,14 +1,13 @@
-// import AddAda from "../components/addAdaLovelace";
-// import GetWagons from "../components/getWagons";
+
 import AddWagons from "../components/AddWagons";
 import ShowWagons from "../components/ShowWagons";
+import SelectStation from "../components/SelectStation";
 
 
 export default function Station() {
     return (
         <>
-        {/* <AddAda />
-        <GetWagons /> */}
+        <SelectStation />
 
         <AddWagons />
         <ShowWagons />
