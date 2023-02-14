@@ -170,6 +170,8 @@ button span {
   margin-right: 10px;
 }
 
+
+/* --- Backgrounds for the wagon elements --- */
 .Blue {
   background-image: url("../src/graphics/WagonBlue.svg");
   background-repeat: no-repeat;
@@ -185,6 +187,9 @@ button span {
 .Olive {
   background-image: url("../src/graphics/WagonOlive.svg");
   background-repeat: no-repeat;
+}
+.wagon {
+  cursor: pointer;
 }
 
 /* --- Station tab table styling --- */
