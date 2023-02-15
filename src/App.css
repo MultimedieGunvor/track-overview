@@ -183,6 +183,7 @@ button span {
 .Lgreen {
   background-image: url("../src/graphics/WagonLgreen.svg");
   background-repeat: no-repeat;
+  color: var(--darkGrey);
 }
 .Olive {
   background-image: url("../src/graphics/WagonOlive.svg");

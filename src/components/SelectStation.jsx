@@ -6,10 +6,11 @@ export default function SelectStation () {
 
     const key = 'station';
 
-    const handleChange = (event) => {
-        setValue(event.target.value);
-        sessionStorage.setItem(key, event.target.value);
+    const handleChange = (e) => {
+        setValue(e.target.value);
+        sessionStorage.setItem(key, e.target.value);
         console.log(sessionStorage);
+        window.dispatchEvent(new Event("storage")); // --- Creates an event that fires when there is a change to the session storage ---
     };
 
 
