@@ -8,22 +8,22 @@ export default function SelectStation () {
 
     const handleChange = (event) => {
         setValue(event.target.value);
-        localStorage.setItem(key, event.target.value);
-        console.log(localStorage);
+        sessionStorage.setItem(key, event.target.value);
+        console.log(sessionStorage);
     };
 
 
     useEffect(() => {
         const timer = setTimeout(() => {
-            localStorage.setItem(key, 'Alnabru');
-            console.log(localStorage);
+            sessionStorage.setItem(key, 'Alnabru');
+            console.log(sessionStorage);
         }, 100);
         return () => clearTimeout(timer);
     }, []);
 
     return (
         <div className="select">
-            <legend>{value}</legend> {/* --- Use state to set it --- */}
+            <legend>{value}</legend>
             <select value={value} onChange={handleChange}>
                 <option value="Alnabru">Alnabru</option>
                 <option value="Trondheim">Trondheim</option>
