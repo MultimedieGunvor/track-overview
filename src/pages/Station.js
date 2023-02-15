@@ -8,9 +8,14 @@ export default function Station() {
     return (
         <>
         <SelectStation />
+        {sessionStorage.value === 'Alnabru' ? (
+            <ShowWagons />
+        ) : (
+            <ShowWagons />
+        )}
 
         <AddWagons />
-        <ShowWagons />
+        {/* <ShowWagons /> */}
         </>
     )
 }
