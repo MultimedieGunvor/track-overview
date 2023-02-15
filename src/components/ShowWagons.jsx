@@ -71,6 +71,7 @@ export default function ShowWagons() {
                                 <div className="wagon-info" style={{display: hoveredInfo === i ? 'block' : 'none'}} >
                                     {/* --- Maybe change these to p tags? --- */}
                                     {/* <p>Track<br/>{track}<br/>date&time</p> */}
+                                    <p>{track}</p>
                                     <p>{position}</p>
                                     <p>{destination}</p>
                                     <p>{wagonId}</p>
