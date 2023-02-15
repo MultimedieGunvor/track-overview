@@ -34,7 +34,7 @@ export default function ShowWagons() {
  
 
     return (
-        <Table striped responsive>
+        <Table striped bordered responsive>
             <thead>
                 <tr>
                     <th>Position</th>
