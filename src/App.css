@@ -194,6 +194,7 @@ button span {
 }
 
 /* --- Station tab table styling --- */
-.wagon tr:nth-child(n) {
-  border-bottom: solid 2px green;
+td>.wagon-info {
+  position: absolute;
+  z-index: 99;
 }
