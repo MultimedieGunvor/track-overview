@@ -17,7 +17,7 @@ export default function SelectStation () {
         const timer = setTimeout(() => {
             sessionStorage.setItem(key, 'Alnabru');
             console.log(sessionStorage);
-        }, 100);
+        }, 3);
         return () => clearTimeout(timer);
     }, []);
 

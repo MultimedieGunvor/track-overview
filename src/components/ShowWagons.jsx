@@ -66,17 +66,17 @@ export default function ShowWagons() {
                 ) : (
                     Wagons.map(
                         ({ id, wagonId, shortId, litra, color, destination, damage, comment, track, position }, i) => (
-                            <tr className="wagon" key={id} onMouseEnter={() => showInfoHandler(i)} onMouseLeave={hideInfoHandler}>
+                            <tr className="wagon" key={id} onMouseEnter={() => showInfoHandler(i)} onMouseLeave={hideInfoHandler}> {/* Change this to <td>? The wagon-info box should probably be styled with position absolute relative to its parent and then with a high z-index */}
                                 <p className={color}>{shortId}</p>
                                 {/* <DeleteWagon id={id}/> */}
                                 <div className="wagon-info" style={{display: hoveredInfo === i ? 'block' : 'none'}} >
                                     <td>Track<br/>{track}<br/>date&time</td>
-                                    <td>{destination}<br/>{shortId}<br/>{comment}</td>
+                                    <td>{destination}</td>
                                     <td>{wagonId}</td>
                                     <td>{shortId}</td>
                                     <td>{comment}</td>
                                     <td>{litra}</td>
-                                    <td>{color}</td>
+                                    {/* <td>{color}</td> */}
                                     <td>{damage}</td>
                                     <td>{position}</td>
                                     <DeleteWagon id={id}/>
