@@ -193,9 +193,6 @@ button span {
   cursor: default;
   width: 100px;
 }
-.wagon-info {
-  position: absolute;
-}
 
 /* --- Station tab table styling --- */
 td>.wagon-info {
