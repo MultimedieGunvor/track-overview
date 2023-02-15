@@ -66,21 +66,20 @@ export default function ShowWagons() {
                 ) : (
                     Wagons.map(
                         ({ id, wagonId, shortId, litra, color, destination, damage, comment, track, position }, i) => (
-                            <tr className="wagon" key={id} onMouseEnter={() => showInfoHandler(i)} onMouseLeave={hideInfoHandler}> {/* Change this to <td>? The wagon-info box should probably be styled with position absolute relative to its parent and then with a high z-index */}
+                            <td className="wagon" key={id} onMouseEnter={() => showInfoHandler(i)} onMouseLeave={hideInfoHandler}> {/* Change this to <td>? The wagon-info box should probably be styled with position absolute relative to its parent and then with a high z-index */}
                                 <p className={color}>{shortId}</p>
                                 <div className="wagon-info" style={{display: hoveredInfo === i ? 'block' : 'none'}} >
                                     {/* --- Maybe change these to p tags? --- */}
-                                    <td>Track<br/>{track}<br/>date&time</td>
-                                    <td>{position}</td>
-                                    <td>{destination}</td>
-                                    <td>{wagonId}</td>
-                                    <td>{comment}</td>
-                                    <td>{litra}</td>
-                                    <td>{damage}</td>
+                                    <p>Track<br/>{track}<br/>date&time</p>
+                                    <p>{position}</p>
+                                    <p>{destination}</p>
+                                    <p>{wagonId}</p>
+                                    <p>{comment}</p>
+                                    <p>{litra}</p>
+                                    <p>{damage}</p>
                                     <DeleteWagon id={id}/>
                                 </div>
-
-                            </tr>
+                            </td>
                         )
                     )
                 )}
