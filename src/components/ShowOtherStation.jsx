@@ -2,6 +2,6 @@
 export default function OtherStation () {
 
     return (
-        <p>This is another station</p>
+        <p>This station is awaiting construction.</p>
     )
 }
