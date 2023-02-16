@@ -15,17 +15,19 @@ export default function OtherStation () {
     const dragEnter = (e, position) => {
         dragOverItem.current = position;
         console.log(e.target.innerHTML);
-  };
+    };
  
-  /* --- Insert dragged item and rearrange the list of items. Here we would probably need to add a function to reassign the item's track/position in the database --- */  
-  const drop = (e) => {
-        const copyListItems = [...list];
-        const dragItemContent = copyListItems[dragItem.current];
-        copyListItems.splice(dragItem.current, 1);
-        copyListItems.splice(dragOverItem.current, 0, dragItemContent);
-        dragItem.current = null;
-        dragOverItem.current = null;
-        setList(copyListItems);
+  /* --- Insert dragged item and rearrange the list of items. Here we would probably need to add a function to reassign the item's track/position in the database. Also, maybe run the function of drop upon fulfillment of a condition (condition= the user has to click "Yes" on a popup/toast that asks "Shunt wagon {wagon} to track {track}, position {position}?") --- */  
+    const drop = (e) => {
+        if (window.confirm(`Shunt wagon ${dragItem.current} to ${dragOverItem.current}`)) {
+            const copyListItems = [...list];
+            const dragItemContent = copyListItems[dragItem.current];
+            copyListItems.splice(dragItem.current, 1);
+            copyListItems.splice(dragOverItem.current, 0, dragItemContent);
+            dragItem.current = null;
+            dragOverItem.current = null;
+            setList(copyListItems);
+        }
     };
 
     return (
