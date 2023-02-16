@@ -1,9 +1,39 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
+import { db } from "../firebaseConfig";
+
+// --- Gunvor is trying out a drag 'n drop solution here ---
 
 export default function OtherStation () {
     const dragItem = useRef();
     const dragOverItem = useRef();
     const [list, setList] = useState(['Item 1','Item 2','Item 3','Item 4','Item 5','Item 6']); /* --- Items to be dragged --- */
+
+    const [Wagons, SetWagons] = useState([]);
+    useEffect(() => {
+        const wagonRef = collection(db, "wagons");
+        const q = query(wagonRef, orderBy("position", "desc")); // Maybe change this to order by track?? Or position??
+        onSnapshot(q, (snapshot) => {
+            const wagons = snapshot.docs.map((doc) => ({
+                id: doc.id,
+                ...doc.data(),
+            }));
+            SetWagons(wagons);
+            console.log(wagons);
+        }); 
+    }, []);
+
+
+    // --- Handling info-modal for wagons ---
+    
+    const [hoveredInfo, setHoveredInfo] = useState(-1);
+
+    const showInfoHandler = (i) => {
+        setHoveredInfo(i);
+    }
+    const hideInfoHandler = () => {
+        setHoveredInfo(-1);
+    }
  
     /* --- Locate the items to be dragged --- */
     const dragStart = (e, position) => {
@@ -33,7 +63,7 @@ export default function OtherStation () {
     return (
         
         <>
-            <p>This station is awaiting construction.<br/>Gunvor will try out her drag-n-drop idea here.</p>
+            
             {
             list&&
             list.map((item, index) => (

@@ -9,7 +9,7 @@ export default function ShowWagons() {
     const [Wagons, SetWagons] = useState([]);
     useEffect(() => {
         const wagonRef = collection(db, "wagons");
-        const q = query(wagonRef, orderBy("createdAt", "desc")); // Maybe change this to order by track?? Or position??
+        const q = query(wagonRef, orderBy("position", "desc")); // Maybe change this to order by track?? Or position??
         onSnapshot(q, (snapshot) => {
             const wagons = snapshot.docs.map((doc) => ({
                 id: doc.id,
