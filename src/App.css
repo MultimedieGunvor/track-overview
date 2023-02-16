@@ -199,3 +199,18 @@ td>.wagon-info {
   position: absolute;
   z-index: 99;
 }
+
+/* --- Other Station styling --- */
+.other-wagons {
+  display: flex;
+}
+
+.other-wagons > .wagon {
+  cursor: default;
+  width: 100px;
+}
+
+.other-wagons > .wagon-info {
+  position: absolute;
+  z-index: 99;
+}
