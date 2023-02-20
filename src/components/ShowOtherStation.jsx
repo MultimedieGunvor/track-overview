@@ -47,14 +47,12 @@ export default function OtherStation () {
         console.log(e.target.innerHTML);
     };
 
+    const batch = writeBatch( db );
 
 
-    // function handleShunt(wagons) {        
-        
-    // }
  
   /* --- Insert dragged item and rearrange the list of items. Here we would probably need to add a function to reassign the item's track/position in the database. Remember the useEffect. --- */  
-    const drop = (e) => {
+    const drop = async (e) => {
         if (window.confirm(`Shunt wagon ${dragItem.current} to ${dragOverItem.current}`)) {
 
 
@@ -64,10 +62,21 @@ export default function OtherStation () {
             copyWagons.splice(dragOverItem.current, 0, dragItemContent);
             dragItem.current = null;
             dragOverItem.current = null;
-            SetWagons(copyWagons); // updateDoc (see AddWagon. All the wagons' positions need to be updated!)
-            // handleShunt(copyWagons);
-            // console.log("Shunt completed", copyWagons[0].id);
-            copyWagons.forEach(element => console.log(element.position)); // Update the database (maybe via batch?)
+            copyWagons.forEach((element, index) => {
+                element.position = index + 1;                
+            });
+            SetWagons(copyWagons);
+            // console.log(copyWagons);
+
+            // --- Update database with the changed wagon positions ---
+            copyWagons.forEach((element) => {
+                const elementID = element.id;
+                const elementPosition = element.position;
+                const idRef = doc(db, 'wagons', elementID); // --- Find the document in the 'wagons'-collection, whose id corresponds to the copyWagons id, which we saved in a state.
+                // console.log(elementID, elementPosition);
+                batch.update(idRef, {"position": elementPosition}); // --- Update the position value, so that it corresponds to the value we saved to state.
+            });
+            await batch.commit(); // --- Commit all the changes saved in the batch. Batching changes saves calls to the server, and you can batch up to 500 changes.
         }
     };
 
