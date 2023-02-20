@@ -38,6 +38,7 @@ export default function OtherStation () {
     /* --- Locate the items to be dragged --- */
     const dragStart = (e, position) => {
         dragItem.current = position;
+        hideInfoHandler();
         console.log(e.target.innerHTML);
     };
  
@@ -51,7 +52,7 @@ export default function OtherStation () {
 
 
  
-  /* --- Insert dragged item and rearrange the list of items. Here we would probably need to add a function to reassign the item's track/position in the database. Remember the useEffect. --- */  
+  /* --- Insert dragged item and rearrange the list of items.  --- */  
     const drop = async (e) => {
         if (window.confirm(`Shunt wagon ${dragItem.current} to ${dragOverItem.current}`)) {
 
