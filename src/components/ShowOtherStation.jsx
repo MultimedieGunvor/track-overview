@@ -39,13 +39,13 @@ export default function OtherStation () {
     const dragStart = (e, position) => {
         dragItem.current = position;
         hideInfoHandler();
-        console.log(e.target.innerHTML);
+        // console.log(e.target.innerHTML);
     };
  
     /* --- Which element is the dragged element floating on? --- */ 
     const dragEnter = (e, position) => {
         dragOverItem.current = position;
-        console.log(e.target.innerHTML);
+        // console.log(e.target.innerHTML);
     };
 
     const batch = writeBatch( db );
@@ -92,6 +92,7 @@ export default function OtherStation () {
                 ) : (
                     Wagons.map(
                         ({ id, wagonId, shortId, litra, color, destination, damage, comment, track, position }, i) => (
+                            // --- Maybe sort by filter or by if(track === c14) {<div>...etc} else if(track === c31) { <div>... etc} or maybe use the where() hook from firestore?
                             <div className="wagon" 
                             key={id} 
                             onMouseEnter={() => showInfoHandler(i)} 
@@ -100,7 +101,7 @@ export default function OtherStation () {
                             onDragEnter={(e) => dragEnter(e, i)} 
                             onDragEnd={drop}
                             draggable> 
-                                <p className={color}>{shortId}</p>
+                                <p className={`${color} ${color}-${damage}`}>{shortId}</p>
                                 <div className="wagon-info" style={{display: hoveredInfo === i ? 'block' : 'none'}} >
                                     <p>{track}</p>
                                     <p>{position}</p>
