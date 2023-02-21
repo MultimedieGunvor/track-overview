@@ -87,35 +87,121 @@ export default function OtherStation () {
         
         <>            
             <div className="other-wagons">
-            {Wagons.length === 0 ? (
-                    <p>No wagons found</p>
-                ) : (
-                    Wagons.map(
-                        ({ id, wagonId, shortId, litra, color, destination, damage, comment, track, position }, i) => (
-                            // --- Maybe sort by filter or by if(track === c14) {<div>...etc} else if(track === c31) { <div>... etc} or maybe use the where() hook from firestore?
-                            <div className="wagon" 
-                            key={id} 
-                            onMouseEnter={() => showInfoHandler(i)} 
-                            onMouseLeave={hideInfoHandler}
-                            onDragStart={(e) => dragStart(e, i)} 
-                            onDragEnter={(e) => dragEnter(e, i)} 
-                            onDragEnd={drop}
-                            draggable> 
-                                <p className={`${color} ${color}-${damage}`}>{shortId}</p>
-                                <div className="wagon-info" style={{display: hoveredInfo === i ? 'block' : 'none'}} >
-                                    <p>{track}</p>
-                                    <p>{position}</p>
-                                    <p>{destination}</p>
-                                    <p>{wagonId}</p>
-                                    <p>{comment}</p>
-                                    <p>{litra}</p>
-                                    <p>{damage}</p>
-                                    <DeleteWagon id={id}/>
+                
+                {/* <div className="track">
+                    {Wagons.length === 0 ? (
+                            <p>No wagons found</p>
+                        ) : (
+                            Wagons.map(
+                                ({ id, wagonId, shortId, litra, color, destination, damage, comment, track, position }, i) => (
+                                    // --- Maybe sort by filter or by if(track === c14) {<div>...etc} else if(track === c31) { <div>... etc}
+                                    <div className="wagon" 
+                                    key={id} 
+                                    onMouseEnter={() => showInfoHandler(i)} 
+                                    onMouseLeave={hideInfoHandler}
+                                    onDragStart={(e) => dragStart(e, i)} 
+                                    onDragEnter={(e) => dragEnter(e, i)} 
+                                    onDragEnd={drop}
+                                    draggable> 
+                                        <p className={`${color} ${color}-${damage}`}>{shortId}</p>
+                                        <div className="wagon-info" style={{display: hoveredInfo === i ? 'block' : 'none'}} >
+                                            <p>{track}</p>
+                                            <p>{position}</p>
+                                            <p>{destination}</p>
+                                            <p>{wagonId}</p>
+                                            <p>{comment}</p>
+                                            <p>{litra}</p>
+                                            <p>{damage}</p>
+                                            <DeleteWagon id={id}/>
+                                        </div>
+                                    </div>
+                                    
+                                )
+                            )
+                        )}
+                </div> */}
+                <div className="track">
+                    <p><br/>C14</p>
+                    {Wagons.length !== 0 ? (
+                        Wagons.map(
+                            ({ id, wagonId, shortId, litra, color, destination, damage, comment, track, position }, i) => (
+                                // --- Maybe sort by filter or by if(track === c14) {<div>...etc} else if(track === c31) { <div>... etc}
+                                <div>
+                                    {track === 'c14' ? (
+                                    <div className="wagons" 
+                                    key={id} 
+                                    onMouseEnter={() => showInfoHandler(i)} 
+                                    onMouseLeave={hideInfoHandler}
+                                    onDragStart={(e) => dragStart(e, i)} 
+                                    onDragEnter={(e) => dragEnter(e, i)} 
+                                    onDragEnd={drop}
+                                    draggable> 
+                                        <p>{position}</p>
+                                        <p className={`${color} ${color}-${damage}`}>{shortId}</p>
+                                        <div className="wagon-info" style={{display: hoveredInfo === i ? 'block' : 'none'}} >
+                                            <p style={{fontSize: '12px'}}>{track}</p>
+                                            <p style={{fontSize: '12px'}}>{position}</p>
+                                            <p style={{fontSize: '12px'}}>{destination}</p>
+                                            <p style={{fontSize: '12px'}}>{wagonId}</p>
+                                            <p style={{fontSize: '12px'}}>{comment}</p>
+                                            <p style={{fontSize: '12px'}}>{litra}</p>
+                                            <p style={{fontSize: '12px'}}>{damage}</p>
+                                            <DeleteWagon id={id}/>
+                                        </div>
+                                    </div>
+                                    ) : (
+                                        <div className="empty">
+                                            <p>{position}</p>
+                                            <p></p>
+                                        </div>
+                                    )}
                                 </div>
-                            </div>
+                                
+                                
+                            )
                         )
-                    )
-                )}
+                    ) : (
+                        <p>No wagons in this track</p>
+                    )}
+                </div>
+                <div className="track">
+                    {Wagons.length !== 0 ? (
+                        Wagons.map(
+                            ({ id, wagonId, shortId, litra, color, destination, damage, comment, track, position }, i) => (
+                                // --- Maybe sort by filter or by if(track === c14) {<div>...etc} else if(track === c31) { <div>... etc}
+                                <div>
+                                    {track === 'r43' ? (
+                                    <div className="wagons" 
+                                    key={id} 
+                                    onMouseEnter={() => showInfoHandler(i)} 
+                                    onMouseLeave={hideInfoHandler}
+                                    onDragStart={(e) => dragStart(e, i)} 
+                                    onDragEnter={(e) => dragEnter(e, i)} 
+                                    onDragEnd={drop}
+                                    draggable> 
+                                        <p className={`${color} ${color}-${damage}`}>{shortId}</p>
+                                        <div className="wagon-info" style={{display: hoveredInfo === i ? 'block' : 'none'}} >
+                                            <p style={{fontSize: '12px'}}>{track}</p>
+                                            <p style={{fontSize: '12px'}}>{position}</p>
+                                            <p style={{fontSize: '12px'}}>{destination}</p>
+                                            <p style={{fontSize: '12px'}}>{wagonId}</p>
+                                            <p style={{fontSize: '12px'}}>{comment}</p>
+                                            <p style={{fontSize: '12px'}}>{litra}</p>
+                                            <p style={{fontSize: '12px'}}>{damage}</p>
+                                            <DeleteWagon id={id}/>
+                                        </div>
+                                    </div>
+                                    ) : (
+                                        <p className="empty"></p>
+                                    )}
+                                </div>
+                                
+                            )
+                        )
+                    ) : (
+                        <p>No wagons in this track</p>
+                    )}
+                </div>
 
             </div>
         </>

@@ -14,7 +14,7 @@ export default function DeleteWagon({id}) {
 
     return (
         <>
-            <button className="delete-btn" onClick={handleDelete}>Delete wagon</button>
+            <button className="delete-btn" onClick={handleDelete}>Delete</button>
         
         </>
     );

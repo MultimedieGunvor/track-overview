@@ -209,16 +209,20 @@ td>.wagon-info {
 }
 
 /* --- Other Station styling --- */
-.other-wagons {
+.track {
   display: flex;
 }
 
-.other-wagons > .wagon {
+.wagons {
   cursor: default;
-  width: 100px;
+  width: 85px;
 }
 
-.other-wagons > .wagon-info {
+.wagons > .wagon-info {
   position: absolute;
   z-index: 99;
+}
+.empty {
+  cursor: default;
+  width: 85px;
 }
