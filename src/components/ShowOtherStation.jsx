@@ -73,11 +73,11 @@ export default function OtherStation () {
             copyWagons.forEach((element) => {
                 const elementID = element.id;
                 const elementPosition = element.position;
-                const idRef = doc(db, 'wagons', elementID); // --- Find the document in the 'wagons'-collection, whose id corresponds to the copyWagons id, which we saved in a state.
+                const idRef = doc(db, 'wagons', elementID); // --- Finds the document in the 'wagons'-collection, whose id corresponds to the copyWagons id, which we saved in a state. We should probably create a elementTrack const to update the track, if we move a wagon from one track to another.
                 // console.log(elementID, elementPosition);
-                batch.update(idRef, {"position": elementPosition}); // --- Update the position value, so that it corresponds to the value we saved to state.
+                batch.update(idRef, {"position": elementPosition}); // --- Updates the position value, so that it corresponds to the value we saved to state.
             });
-            await batch.commit(); // --- Commit all the changes saved in the batch. Batching changes saves calls to the server, and you can batch up to 500 changes.
+            await batch.commit(); // --- Commits all the changes saved in the batch. Batching changes saves calls to the server, and you can batch up to 500 changes.
         }
     };
 
@@ -88,44 +88,11 @@ export default function OtherStation () {
         <>            
             <div className="other-wagons">
                 
-                {/* <div className="track">
-                    {Wagons.length === 0 ? (
-                            <p>No wagons found</p>
-                        ) : (
-                            Wagons.map(
-                                ({ id, wagonId, shortId, litra, color, destination, damage, comment, track, position }, i) => (
-                                    // --- Maybe sort by filter or by if(track === c14) {<div>...etc} else if(track === c31) { <div>... etc}
-                                    <div className="wagon" 
-                                    key={id} 
-                                    onMouseEnter={() => showInfoHandler(i)} 
-                                    onMouseLeave={hideInfoHandler}
-                                    onDragStart={(e) => dragStart(e, i)} 
-                                    onDragEnter={(e) => dragEnter(e, i)} 
-                                    onDragEnd={drop}
-                                    draggable> 
-                                        <p className={`${color} ${color}-${damage}`}>{shortId}</p>
-                                        <div className="wagon-info" style={{display: hoveredInfo === i ? 'block' : 'none'}} >
-                                            <p>{track}</p>
-                                            <p>{position}</p>
-                                            <p>{destination}</p>
-                                            <p>{wagonId}</p>
-                                            <p>{comment}</p>
-                                            <p>{litra}</p>
-                                            <p>{damage}</p>
-                                            <DeleteWagon id={id}/>
-                                        </div>
-                                    </div>
-                                    
-                                )
-                            )
-                        )}
-                </div> */}
                 <div className="track">
                     <p><br/>C14</p>
                     {Wagons.length !== 0 ? (
                         Wagons.map(
                             ({ id, wagonId, shortId, litra, color, destination, damage, comment, track, position }, i) => (
-                                // --- Maybe sort by filter or by if(track === c14) {<div>...etc} else if(track === c31) { <div>... etc}
                                 <div>
                                     {track === 'c14' ? (
                                     <div className="wagons" 
@@ -150,10 +117,7 @@ export default function OtherStation () {
                                         </div>
                                     </div>
                                     ) : (
-                                        <div className="empty">
-                                            <p>{position}</p>
-                                            <p></p>
-                                        </div>
+                                        <p></p>
                                     )}
                                 </div>
                                 
@@ -165,10 +129,10 @@ export default function OtherStation () {
                     )}
                 </div>
                 <div className="track">
+                    <p>R43</p>
                     {Wagons.length !== 0 ? (
                         Wagons.map(
                             ({ id, wagonId, shortId, litra, color, destination, damage, comment, track, position }, i) => (
-                                // --- Maybe sort by filter or by if(track === c14) {<div>...etc} else if(track === c31) { <div>... etc}
                                 <div>
                                     {track === 'r43' ? (
                                     <div className="wagons" 
@@ -192,7 +156,7 @@ export default function OtherStation () {
                                         </div>
                                     </div>
                                     ) : (
-                                        <p className="empty"></p>
+                                        <p></p>
                                     )}
                                 </div>
                                 
