@@ -8,11 +8,14 @@ import DeleteWagon from "./DeleteWagon";
 export default function OtherStation () {
     const dragItem = useRef();
     const dragOverItem = useRef();
+    // const dragTrack = useRef();
+    // const dragOverTrack = useRef();
 
+    //const [MaxPosition, SetMaxPosition] = useState([]);
     const [Wagons, SetWagons] = useState([]);
     useEffect(() => {
         const wagonRef = collection(db, "wagons");
-        const q = query(wagonRef, orderBy("position", "asc"));
+        const q = query(wagonRef, orderBy("position", "asc")); // --- Maybe do a query to find the highest position value, and then use that number to set the amount of columns in the grid. Maybe like: const mp = query(wagonRef, orderBy("position", "desc")); SetMaxPosition(mp[0]); console.log(MaxPosition); and then use MaxPosition for inline styling of grid container, so that it changes with the amount of occupied positions.
         onSnapshot(q, (snapshot) => {
             const wagons = snapshot.docs.map((doc) => ({
                 id: doc.id,
@@ -35,16 +38,18 @@ export default function OtherStation () {
         setHoveredInfo(-1);
     }
  
-    /* --- Locate the items to be dragged --- */
-    const dragStart = (e, position) => {
+    // --- Locate the items to be dragged --- 
+    const dragStart = (e, position) => { // (e, position, track)
         dragItem.current = position;
+        //dragTrack.current = track;
         hideInfoHandler();
         // console.log(e.target.innerHTML);
     };
  
-    /* --- Which element is the dragged element floating on? --- */ 
-    const dragEnter = (e, position) => {
+    // --- Which element is the dragged element floating on? --- 
+    const dragEnter = (e, position) => { //(e, position, track)
         dragOverItem.current = position;
+        //dragOverTrack.current = track; 
         // console.log(e.target.innerHTML);
     };
 
@@ -52,10 +57,9 @@ export default function OtherStation () {
 
 
  
-  /* --- Insert dragged item and rearrange the list of items.  --- */  
+  // --- Insert dragged item and rearrange the list of items.  ---  
     const drop = async (e) => {
         if (window.confirm(`Shunt wagon ${dragItem.current} to ${dragOverItem.current}`)) {
-
 
             const copyWagons = [...Wagons];
             const dragItemContent = copyWagons[dragItem.current];
@@ -63,6 +67,8 @@ export default function OtherStation () {
             copyWagons.splice(dragOverItem.current, 0, dragItemContent);
             dragItem.current = null;
             dragOverItem.current = null;
+            // dragTrack.current = null;
+            // dragOverTrack = null;
             copyWagons.forEach((element, index) => {
                 element.position = index + 1;                
             });
@@ -73,9 +79,10 @@ export default function OtherStation () {
             copyWagons.forEach((element) => {
                 const elementID = element.id;
                 const elementPosition = element.position;
-                const idRef = doc(db, 'wagons', elementID); // --- Finds the document in the 'wagons'-collection, whose id corresponds to the copyWagons id, which we saved in a state. We should probably create a elementTrack const to update the track, if we move a wagon from one track to another.
-                // console.log(elementID, elementPosition);
+                //const elementTrack = element.track;
+                const idRef = doc(db, 'wagons', elementID); // --- Finds the document in the 'wagons'-collection, whose id corresponds to the copyWagons id, which we saved in a state. 
                 batch.update(idRef, {"position": elementPosition}); // --- Updates the position value, so that it corresponds to the value we saved to state.
+                //batch.update(idRef, {"track": elementTrack});
             });
             await batch.commit(); // --- Commits all the changes saved in the batch. Batching changes saves calls to the server, and you can batch up to 500 changes.
         }
@@ -91,7 +98,7 @@ export default function OtherStation () {
                 <div className="track">
                     <p><br/>C14</p>
                     {Wagons.length !== 0 ? (
-                        Wagons.map(
+                        Wagons.map( // --- Maybe filter() by track? and then check amount of items in array to fill in gaps?? Like const filtered = Wagons.filter((element) => {element.track === 'c14 ? (filtered.map(etc etc)):(else do.. nothing?) BUT then how to generate the empty divs or arrays where there's no element with that position??}
                             ({ id, wagonId, shortId, litra, color, destination, damage, comment, track, position }, i) => (
                                 <div>
                                     {track === 'c14' ? (
@@ -99,8 +106,8 @@ export default function OtherStation () {
                                     key={id} 
                                     onMouseEnter={() => showInfoHandler(i)} 
                                     onMouseLeave={hideInfoHandler}
-                                    onDragStart={(e) => dragStart(e, i)} 
-                                    onDragEnter={(e) => dragEnter(e, i)} 
+                                    onDragStart={(e) => dragStart(e, i)} // --- dragStart(e, i, track), maybe?
+                                    onDragEnter={(e) => dragEnter(e, i)} // --- dragStart(e, i, track), maybe?
                                     onDragEnd={drop}
                                     draggable> 
                                         <p>{position}</p>
