@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { collection, onSnapshot, orderBy, query, doc, writeBatch } from "firebase/firestore";
 import { db } from "../firebaseConfig";
 import DeleteWagon from "./DeleteWagon";
+import MakeWagons from "./Wagons";
 
 // --- Gunvor is trying out a drag 'n drop solution here ---
 
@@ -94,6 +95,7 @@ export default function OtherStation () {
         
         <>            
             <div className="other-wagons">
+                <MakeWagons wagons={Wagons} track="r43"/>
                 
                 <div className="track">
                     <p><br/>C14</p>
