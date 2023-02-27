@@ -12,7 +12,6 @@ export default function OtherStation () {
     // const dragTrack = useRef();
     // const dragOverTrack = useRef();
 
-    //const [MaxPosition, SetMaxPosition] = useState([]);
     const [Wagons, SetWagons] = useState([]);
     useEffect(() => {
         const wagonRef = collection(db, "wagons");
@@ -98,9 +97,9 @@ export default function OtherStation () {
                 <MakeWagons wagons={Wagons} track="r43"/>
                 
                 <div className="track">
-                    <p><br/>C14</p>
+                    <p>C14</p>
                     {Wagons.length !== 0 ? (
-                        Wagons.map( // --- Maybe filter() by track? and then check amount of items in array to fill in gaps?? Like const filtered = Wagons.filter((element) => {element.track === 'c14 ? (filtered.map(etc etc)):(else do.. nothing?) BUT then how to generate the empty divs or arrays where there's no element with that position??}
+                        Wagons.map( 
                             ({ id, wagonId, shortId, litra, color, destination, damage, comment, track, position }, i) => (
                                 <div>
                                     {track === 'c14' ? (
@@ -112,16 +111,16 @@ export default function OtherStation () {
                                     onDragEnter={(e) => dragEnter(e, i)} // --- dragStart(e, i, track), maybe?
                                     onDragEnd={drop}
                                     draggable> 
-                                        <p>{position}</p>
+                                        {/* <p>{position}</p> */}
                                         <p className={`${color} ${color}-${damage}`}>{shortId}</p>
-                                        <div className="wagon-info" style={{display: hoveredInfo === i ? 'block' : 'none'}} >
-                                            <p style={{fontSize: '12px'}}>{track}</p>
-                                            <p style={{fontSize: '12px'}}>{position}</p>
-                                            <p style={{fontSize: '12px'}}>{destination}</p>
-                                            <p style={{fontSize: '12px'}}>{wagonId}</p>
-                                            <p style={{fontSize: '12px'}}>{comment}</p>
-                                            <p style={{fontSize: '12px'}}>{litra}</p>
-                                            <p style={{fontSize: '12px'}}>{damage}</p>
+                                        <div className="wagon-info" style={{display: hoveredInfo === i ? 'block' : 'none', fontSize: '12px'}} >
+                                            <p>{track}</p>
+                                            <p>{position}</p>
+                                            <p>{destination}</p>
+                                            <p>{wagonId}</p>
+                                            <p>{comment}</p>
+                                            <p>{litra}</p>
+                                            <p>{damage}</p>
                                             <DeleteWagon id={id}/>
                                         </div>
                                     </div>
@@ -153,14 +152,14 @@ export default function OtherStation () {
                                     onDragEnd={drop}
                                     draggable> 
                                         <p className={`${color} ${color}-${damage}`}>{shortId}</p>
-                                        <div className="wagon-info" style={{display: hoveredInfo === i ? 'block' : 'none'}} >
-                                            <p style={{fontSize: '12px'}}>{track}</p>
-                                            <p style={{fontSize: '12px'}}>{position}</p>
-                                            <p style={{fontSize: '12px'}}>{destination}</p>
-                                            <p style={{fontSize: '12px'}}>{wagonId}</p>
-                                            <p style={{fontSize: '12px'}}>{comment}</p>
-                                            <p style={{fontSize: '12px'}}>{litra}</p>
-                                            <p style={{fontSize: '12px'}}>{damage}</p>
+                                        <div className="wagon-info" style={{display: hoveredInfo === i ? 'block' : 'none', fontSize: '12px'}} >
+                                            <p>{track}</p>
+                                            <p>{position}</p>
+                                            <p>{destination}</p>
+                                            <p>{wagonId}</p>
+                                            <p>{comment}</p>
+                                            <p>{litra}</p>
+                                            <p>{damage}</p>
                                             <DeleteWagon id={id}/>
                                         </div>
                                     </div>
