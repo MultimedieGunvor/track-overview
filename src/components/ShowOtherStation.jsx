@@ -33,6 +33,7 @@ export default function OtherStation () {
 
     const showInfoHandler = (i) => {
         setHoveredInfo(i);
+        // console.log(i);
     }
     const hideInfoHandler = () => {
         setHoveredInfo(-1);
@@ -111,7 +112,6 @@ export default function OtherStation () {
                                     onDragEnter={(e) => dragEnter(e, i)} // --- dragStart(e, i, track), maybe?
                                     onDragEnd={drop}
                                     draggable> 
-                                        {/* <p>{position}</p> */}
                                         <p className={`${color} ${color}-${damage}`}>{shortId}</p>
                                         <div className="wagon-info" style={{display: hoveredInfo === i ? 'block' : 'none', fontSize: '12px'}} >
                                             <p>{track}</p>

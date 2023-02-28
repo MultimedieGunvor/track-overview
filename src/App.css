@@ -212,7 +212,9 @@ td>.wagon-info {
 .track {
   display: flex;
 }
-
+.track > div {
+  display:  flex;
+}
 .wagons {
   cursor: default;
   width: 85px;
@@ -221,8 +223,4 @@ td>.wagon-info {
 .wagons > .wagon-info {
   position: absolute;
   z-index: 99;
-}
-.empty {
-  cursor: default;
-  width: 85px;
 }
