@@ -38,13 +38,13 @@ const MakeWagons = ({ wagons, track }) => { // --- Do we need to make it async a
     
   const [hoveredInfo, setHoveredInfo] = useState(-1);
 
-  const showInfoHandler = (i) => {
-      setHoveredInfo(i);
-      console.log(i);
-  }
+  // const showInfoHandler = (i) => {
+  //     // setHoveredInfo(i);
+  //     console.log(i); // --- Logs as 'undefined'. How come? Does this need to be nested in getTrackContent??
+  // };
   const hideInfoHandler = () => {
       setHoveredInfo(-1);
-  }
+  };
 
   // --- Locate the items to be dragged --- 
   const dragStart = (e, position) => { // (e, position, track)
@@ -95,6 +95,11 @@ const MakeWagons = ({ wagons, track }) => { // --- Do we need to make it async a
 
 
   const getTrackContent = array => {
+    const showInfoHandler = (item) => {
+      // setHoveredInfo(i);
+      console.log(item.i); // --- Logs as 'undefined'. How come? Does this need to be nested in getTrackContent??
+    };
+
     let content =[];
     for (let item of array) {
       if (typeof item == 'undefined') {
@@ -105,7 +110,7 @@ const MakeWagons = ({ wagons, track }) => { // --- Do we need to make it async a
       content.push(
         <div className="wagons" 
         key={item.id}
-        onMouseEnter={() => showInfoHandler(item.i)} 
+        onMouseEnter={() => showInfoHandler(item)} 
         onMouseLeave={hideInfoHandler}
         onDragStart={(e) => dragStart(e, item.i)} // --- dragStart(e, i, track), maybe?
         onDragEnter={(e) => dragEnter(e, item.i)} // --- dragStart(e, i, track), maybe?
