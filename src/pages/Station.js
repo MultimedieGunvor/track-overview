@@ -2,7 +2,7 @@
 import AddWagons from "../components/AddWagons";
 import ShowWagons from "../components/ShowWagons";
 import SelectStation from "../components/SelectStation";
-import OtherStation from "../components/ShowOtherStation";
+import OtherStation from "../components/OtherStation";
 import { useState } from "react";
 
 

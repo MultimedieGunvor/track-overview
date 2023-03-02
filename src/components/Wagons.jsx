@@ -3,7 +3,7 @@ import { doc, writeBatch } from "firebase/firestore";
 import { db } from "../firebaseConfig";
 import DeleteWagon from "./DeleteWagon";
 
-const MakeWagons = ({ wagons, track }) => { // --- Do we need to make it async and then do await for wagons.filter, or does my computer or browser just need a restart?
+const MakeWagons = ({ wagons, track }) => { 
   // const [ Track, setTrack] = useState([]);
   
   let filteredTrack = wagons.filter((wagon) => wagon.track === track);
@@ -11,23 +11,20 @@ const MakeWagons = ({ wagons, track }) => { // --- Do we need to make it async a
 
   let output = Array(20);
   let fullTrack = filteredTrack.map((element) => {
-    // const elementPos = element.position;
-    // const elementId = element.id;
-    // console.log(elementId, elementPos);
 
     for (let position = 0; position < 19; position++) {
       if (element.position === position) {
         output[position] = element;
-        // console.log("It's a match");
       } else {
-        // console.log("No such position");
       }
     }
     return output;
     
   });
 
-  console.log(fullTrack[0]);
+  // console.log(fullTrack[0]);
+  let fTrack = fullTrack[0];
+  console.log(fTrack);
 
   const dragItem = useRef();
   const dragOverItem = useRef();
@@ -38,10 +35,10 @@ const MakeWagons = ({ wagons, track }) => { // --- Do we need to make it async a
     
   const [hoveredInfo, setHoveredInfo] = useState(-1);
 
-  // const showInfoHandler = (i) => {
-  //     // setHoveredInfo(i);
-  //     console.log(i); // --- Logs as 'undefined'. How come? Does this need to be nested in getTrackContent??
-  // };
+  const showInfoHandler = (i) => {
+      setHoveredInfo(i);
+      console.log(i);
+  };
   const hideInfoHandler = () => {
       setHoveredInfo(-1);
   };
@@ -66,7 +63,7 @@ const MakeWagons = ({ wagons, track }) => { // --- Do we need to make it async a
   const drop = async (e) => {
     if (window.confirm(`Shunt wagon ${dragItem.current} to ${dragOverItem.current}`)) { // --- We also need to make sure you can ONLY shunt to empty slots. Use if and maybe alert.
 
-        const copyWagons = [...fullTrack[0]];
+        const copyWagons = [...fTrack];
         const dragItemContent = copyWagons[dragItem.current];
         copyWagons.splice(dragItem.current, 1);
         copyWagons.splice(dragOverItem.current, 0, dragItemContent); // --- To delete the next item in the array, change 0 to 1. We need to do this when shunting wagons to empty slots.
@@ -94,38 +91,35 @@ const MakeWagons = ({ wagons, track }) => { // --- Do we need to make it async a
   };
 
 
-  const getTrackContent = array => {
-    const showInfoHandler = (item) => {
-      // setHoveredInfo(i);
-      console.log(item.i); // --- Logs as 'undefined'. How come? Does this need to be nested in getTrackContent??
-    };
+  const getTrackContent = (array) => {
 
     let content =[];
-    for (let item of array) {
-      if (typeof item == 'undefined') {
+    for (let i=0; i<array.length; i++) {
+      if (!(i in array)) {
         content.push(
           <div className="wagons empty"></div>
         );
       } else {
       content.push(
         <div className="wagons" 
-        key={item.id}
-        onMouseEnter={() => showInfoHandler(item)} 
+        key={array.i.id}
+        onMouseEnter={() => showInfoHandler(i)} 
         onMouseLeave={hideInfoHandler}
-        onDragStart={(e) => dragStart(e, item.i)} // --- dragStart(e, i, track), maybe?
-        onDragEnter={(e) => dragEnter(e, item.i)} // --- dragStart(e, i, track), maybe?
+        onDragStart={(e) => dragStart(e, i)} // --- dragStart(e, i, track), maybe?
+        onDragEnter={(e) => dragEnter(e, i)} // --- dragStart(e, i, track), maybe?
         onDragEnd={drop}
         draggable>
-          <p className={`${item.color} ${item.color}-${item.damage}`}>{item.shortId}</p>
-          <div className="wagon-info" style={{display: hoveredInfo === item.i ? 'block' : 'none', fontSize: '12px'}} >
-              <p>{item.track}</p>
-              <p>{item.position}</p>
-              <p>{item.destination}</p>
-              <p>{item.wagonId}</p>
-              <p>{item.comment}</p>
-              <p>{item.litra}</p>
-              <p>{item.damage}</p>
-              <DeleteWagon id={item.id}/>
+          <p className={`${array.i.color} ${array.i.color}-${array.i.damage}`}>{array.i.shortId}</p>
+          <div className="wagon-info" style={{display: hoveredInfo === i ? 'block' : 'none', fontSize: '12px'}} >
+              {/* <p>{i}</p> */}
+              <p>{array.i.track}</p>
+              <p>{array.i.position}</p>
+              <p>{array.i.destination}</p>
+              <p>{array.i.wagonId}</p>
+              <p>{array.i.comment}</p>
+              <p>{array.i.litra}</p>
+              <p>{array.i.damage}</p>
+              <DeleteWagon id={array.i.id}/>
           </div>
         </div>
       );}
@@ -138,10 +132,13 @@ const MakeWagons = ({ wagons, track }) => { // --- Do we need to make it async a
   return (
     <div className="track">
       <p>{track}</p>
-      {fullTrack[0].length !== 0 ? (
-        <div>{getTrackContent(fullTrack[0])}</div>
-        // fullTrack[0].map( 
-        //   ({ id, wagonId, shortId, litra, color, destination, damage, comment, track, position }, i) => (
+      {
+      fTrack.length !== 0 ? (
+        <div>{getTrackContent(fTrack)}</div>
+        // fTrack.map( 
+        //   ({ id, wagonId, shortId, litra, color, destination, damage, comment, track, position }, i) => 
+        //     ( typeof fTrack[i] == 'undefined') ? (<div key={i} className="wagons empty"></div>) : 
+        //     (
         //     <div className="wagons" 
         //     key={id} 
         //     onMouseEnter={() => showInfoHandler(i)} 
@@ -166,7 +163,8 @@ const MakeWagons = ({ wagons, track }) => { // --- Do we need to make it async a
         // )
       ) : (
         <p>No wagons in this track</p>
-      )}
+      )
+      }
     </div>
   )
 };

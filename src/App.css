@@ -219,6 +219,10 @@ td>.wagon-info {
   cursor: default;
   width: 85px;
 }
+.empty {
+  cursor: default;
+  width: 85px;
+}
 
 .wagons > .wagon-info {
   position: absolute;
