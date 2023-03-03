@@ -1,16 +1,22 @@
-import React, { useState, useRef, useEffect } from "react";
-import { collection, onSnapshot, orderBy, query, doc, writeBatch } from "firebase/firestore";
+import React, { useState, useEffect } from "react";
+import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import { db } from "../firebaseConfig";
-import DeleteWagon from "./DeleteWagon";
-import MakeWagons from "./Wagons";
+// import DeleteWagon from "./DeleteWagon";
+import MakeWagons from "./MakeWagons";
+//import { useHover } from "./Hover";
+// import { DragDrop, DragEnter, DragStart } from "./DragDrop";
+import Modal from "./Modal"; 
 
 // --- Gunvor is trying out a drag 'n drop solution here ---
 
 export default function OtherStation () {
-    const dragItem = useRef();
-    const dragOverItem = useRef();
-    // const dragTrack = useRef();
-    // const dragOverTrack = useRef();
+    // const dragItem = useRef();
+    // const dragOverItem = useRef();
+    // // const dragTrack = useRef();
+    // // const dragOverTrack = useRef();
+
+    // const [hoverRef, isHovered] = useHover();
+    const [Hover, setHover] = useState(null);
 
     const [Wagons, SetWagons] = useState([]);
     useEffect(() => {
@@ -29,110 +35,102 @@ export default function OtherStation () {
 
     // --- Handling info-modal for wagons ---
     
-    const [hoveredInfo, setHoveredInfo] = useState(-1);
+    // const [hoveredInfo, setHoveredInfo] = useState(-1);
 
-    const showInfoHandler = (i) => {
-        setHoveredInfo(i);
-        // console.log(i);
-    }
-    const hideInfoHandler = () => {
-        setHoveredInfo(-1);
-    }
+    // const showInfoHandler = (i) => {
+    //     setHoveredInfo(i);
+    //     // console.log(i);
+    // }
+    // const hideInfoHandler = () => {
+    //     setHoveredInfo(-1);
+    // }
  
-    // --- Locate the items to be dragged --- 
-    const dragStart = (e, position) => { // (e, position, track)
-        dragItem.current = position;
-        //dragTrack.current = track;
-        hideInfoHandler();
-        // console.log(e.target.innerHTML);
-    };
+
+    // // --- Locate the items to be dragged --- 
+    // const dragStart = (e, position) => { // (e, position, track)
+    //     dragItem.current = position;
+    //     //dragTrack.current = track;
+    //     hideInfoHandler();
+    //     // console.log(e.target.innerHTML);
+    // };
  
-    // --- Which element is the dragged element floating on? --- 
-    const dragEnter = (e, position) => { //(e, position, track)
-        dragOverItem.current = position;
-        //dragOverTrack.current = track; 
-        // console.log(e.target.innerHTML);
-    };
-
-    const batch = writeBatch( db );
-
-
+    // // --- Which element is the dragged element floating on? --- 
+    // const dragEnter = (e, position) => { //(e, position, track)
+    //     dragOverItem.current = position;
+    //     //dragOverTrack.current = track; 
+    //     // console.log(e.target.innerHTML);
+    // };
  
-  // --- Insert dragged item and rearrange the list of items.  ---  
-    const drop = async (e) => {
-        if (window.confirm(`Shunt wagon ${dragItem.current} to ${dragOverItem.current}`)) {
+    // // --- Insert dragged item and rearrange the list of items.  ---  
+    // const batch = writeBatch( db );
+    // const drop = async (e) => {
+    //     if (window.confirm(`Shunt wagon ${dragItem.current} to ${dragOverItem.current}`)) {
 
-            const copyWagons = [...Wagons];
-            const dragItemContent = copyWagons[dragItem.current];
-            copyWagons.splice(dragItem.current, 1);
-            copyWagons.splice(dragOverItem.current, 0, dragItemContent);
-            dragItem.current = null;
-            dragOverItem.current = null;
-            // dragTrack.current = null;
-            // dragOverTrack = null;
-            copyWagons.forEach((element, index) => {
-                element.position = index + 1;                
-            });
-            SetWagons(copyWagons);
-            // console.log(copyWagons);
+    //         const copyWagons = [...Wagons];
+    //         const dragItemContent = copyWagons[dragItem.current];
+    //         copyWagons.splice(dragItem.current, 1);
+    //         copyWagons.splice(dragOverItem.current, 0, dragItemContent);
+    //         dragItem.current = null;
+    //         dragOverItem.current = null;
+    //         // dragTrack.current = null;
+    //         // dragOverTrack = null;
+    //         copyWagons.forEach((element, index) => {
+    //             element.position = index + 1;                
+    //         });
+    //         SetWagons(copyWagons);
+    //         // console.log(copyWagons);
 
-            // --- Update database with the changed wagon positions ---
-            copyWagons.forEach((element) => {
-                const elementID = element.id;
-                const elementPosition = element.position;
-                //const elementTrack = element.track;
-                const idRef = doc(db, 'wagons', elementID); // --- Finds the document in the 'wagons'-collection, whose id corresponds to the copyWagons id, which we saved in a state. 
-                batch.update(idRef, {"position": elementPosition}); // --- Updates the position value, so that it corresponds to the value we saved to state.
-                //batch.update(idRef, {"track": elementTrack});
-            });
-            await batch.commit(); // --- Commits all the changes saved in the batch. Batching changes saves calls to the server, and you can batch up to 500 changes.
-        }
-    };
+    //         // --- Update database with the changed wagon positions ---
+    //         copyWagons.forEach((element) => {
+    //             const elementID = element.id;
+    //             const elementPosition = element.position;
+    //             //const elementTrack = element.track;
+    //             const idRef = doc(db, 'wagons', elementID); // --- Finds the document in the 'wagons'-collection, whose id corresponds to the copyWagons id, which we saved in a state. 
+    //             batch.update(idRef, {"position": elementPosition}); // --- Updates the position value, so that it corresponds to the value we saved to state.
+    //             //batch.update(idRef, {"track": elementTrack});
+    //         });
+    //         await batch.commit(); // --- Commits all the changes saved in the batch. Batching changes saves calls to the server, and you can batch up to 500 changes.
+    //     }
+    // };
 
     
 
     return (
-        
-        <>            
-            <div className="other-wagons">
+                    
+        <div className="other-wagons">
             <MakeWagons wagons={Wagons} track="r43"/>
-                <div className="track">
-                    <p>C14</p>
-                    {Wagons.length !== 0 ? (
-                        Wagons.map( 
-                            ({ id, wagonId, shortId, litra, color, destination, damage, comment, track, position }, i) => 
-                                <div>
-                                    {track === 'c14' ? (
-                                    <div className="wagons" 
-                                    key={id} 
-                                    onMouseEnter={() => showInfoHandler(i)} 
-                                    onMouseLeave={hideInfoHandler}
-                                    onDragStart={(e) => dragStart(e, i)} // --- dragStart(e, i, track), maybe?
-                                    onDragEnter={(e) => dragEnter(e, i)} // --- dragStart(e, i, track), maybe?
-                                    onDragEnd={drop}
-                                    draggable> 
-                                        <p className={`${color} ${color}-${damage}`}>{shortId}</p>
-                                        <div className="wagon-info" style={{display: hoveredInfo === i ? 'block' : 'none', fontSize: '12px'}} >
-                                            <p>{track}</p>
-                                            <p>{position}</p>
-                                            <p>{destination}</p>
-                                            <p>{wagonId}</p>
-                                            <p>{comment}</p>
-                                            <p>{litra}</p>
-                                            <p>{damage}</p>
-                                            <DeleteWagon id={id}/>
-                                        </div>
-                                    </div>
-                                    ) : (
-                                        <p></p>
-                                    )}
-                                </div>                       
-                        )
-                    ) : (
-                        <p>No wagons in this track</p>
-                    )}
-                </div>
+            <div className="track">
+                <p>C14</p>
+                {Wagons.length !== 0 ? (
+                    Wagons.map( 
+                        (wagon, i) => wagon.track === 'c14' ? (
+                            <div className="wagons" 
+                            key={wagon.id} 
+                            onMouseEnter ={() => 
+                                {setHover(i);
+                                console.log(Hover)}}
+                            onMouseLeave ={() => setHover(false)}
+                            // ref={hoverRef}
+                            // onMouseEnter={() => ShowInfoHandler(i)} 
+                            // onMouseLeave={HideInfoHandler}
+                            // onDragStart={(e) => DragStart(e, i)} // --- dragStart(e, i, track), maybe?
+                            // onDragEnter={(e) => DragEnter(e, i)} // --- dragStart(e, i, track), maybe?
+                            // onDragEnd={DragDrop(Wagons)}
+                            draggable> 
+                                <p className={`${wagon.color} ${wagon.color}-${wagon.damage}`}>{wagon.shortId}</p>
+                                {Hover === i ? (<Modal props={wagon}/>) : ("") }
+                                
+                            </div>
+                        ) : (
+                            // console.log("Other track")
+                            ""
+
+                        )                       
+                    )
+                ) : (
+                    <p>No wagons in this track</p>
+                )}
             </div>
-        </>
+        </div>
     );
 };

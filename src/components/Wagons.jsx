@@ -3,7 +3,7 @@ import { doc, writeBatch } from "firebase/firestore";
 import { db } from "../firebaseConfig";
 import DeleteWagon from "./DeleteWagon";
 
-const MakeWagons = ({ wagons, track }) => { 
+const Wagons = ({ wagons, track }) => { 
   // const [ Track, setTrack] = useState([]);
   
   let filteredTrack = wagons.filter((wagon) => wagon.track === track);
@@ -169,4 +169,4 @@ const MakeWagons = ({ wagons, track }) => {
   )
 };
 
-export default MakeWagons;
+export default Wagons;
