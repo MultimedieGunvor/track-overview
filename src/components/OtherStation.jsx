@@ -98,7 +98,7 @@ export default function OtherStation () {
     return (
                     
         <div className="other-wagons">
-            <MakeWagons wagons={Wagons} track="r43"/>
+            {/* <MakeWagons wagons={Wagons} track="r43"/> */}
             <div className="track">
                 <p>C14</p>
                 {Wagons.length !== 0 ? (

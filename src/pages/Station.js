@@ -8,9 +8,9 @@ import { useState } from "react";
 
 export default function Station() {
 
-    const [station, setStation] = useState();
+    const [station, setStation] = useState('Alnabru'); 
 
-    // --- Listen for changes to the sesssion storage, to update station choice when a new one is selected. ---
+    // --- Listen for changes to the session storage, to update station choice when a new one is selected. ---
     window.addEventListener('storage', () => {
         const currentStation = sessionStorage.getItem('station');
         console.log(currentStation);
@@ -21,7 +21,7 @@ export default function Station() {
             <>
             <SelectStation />
             <AddWagons />
-            {station === 'Alnabru' || !station ? (
+            {station === 'Alnabru' ? (
                 <ShowWagons />
             ) : (
                 <OtherStation />

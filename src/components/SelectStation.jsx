@@ -7,20 +7,20 @@ export default function SelectStation () {
     const key = 'station';
 
     const handleChange = (e) => {
-        setValue(e.target.value);
+        setValue(e.target.value); 
         sessionStorage.setItem(key, e.target.value);
         console.log(sessionStorage);
-        window.dispatchEvent(new Event("storage")); // --- Creates an event that fires when there is a change to the session storage ---
+        window.dispatchEvent(new Event("storage")); 
     };
 
 
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            sessionStorage.setItem(key, 'Alnabru');
-            console.log(sessionStorage);
-        }, 3);
-        return () => clearTimeout(timer);
-    }, []);
+    // useEffect(() => { // --- Er den her overhovedet nødvendig? Bliver den brugt?
+    //     const timer = setTimeout(() => {
+    //         sessionStorage.setItem(key, 'Alnabru');
+    //         console.log(sessionStorage);
+    //     }, 3);
+    //     return () => clearTimeout(timer);
+    // }, []);
 
     return (
         <div className="select">

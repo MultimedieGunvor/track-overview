@@ -4,7 +4,7 @@ export default function MakeWagons ({wagons, track}) {
     let filteredTrack = wagons.filter((wagon) => wagon.track === track);
     console.log(filteredTrack);
 
-    let output = Array(20);
+    let output = Array(20); // --- Kan man bare gøre dem allesammen til undefined og så overskrive med filteredTrack-elementerne???
     filteredTrack.forEach((element) => {
         output[element.position-1] = element;
         //console.log(element)
