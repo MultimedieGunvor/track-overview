@@ -3,8 +3,6 @@ import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import { db } from "../firebaseConfig";
 // import DeleteWagon from "./DeleteWagon";
 import MakeWagons from "./MakeWagons";
-//import { useHover } from "./Hover";
-// import { DragDrop, DragEnter, DragStart } from "./DragDrop";
 import Modal from "./Modal"; 
 
 // --- Gunvor is trying out a drag 'n drop solution here ---

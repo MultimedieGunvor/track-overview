@@ -12,7 +12,7 @@ export default function AddWagons () {
         damage: "",
         comment: "",
         track: "",
-        position:"",
+        position:"", // --- Maybe if we remove the quotation marks, it won't change the numbers to a string??
         createdAt: Timestamp.now().toDate(),
     });
     
@@ -58,7 +58,7 @@ export default function AddWagons () {
                 damage: "",
                 comment: "",
                 track: "",
-                position: "",
+                position: "", // --- Maybe remove the qoutation marks??
                 createdAt: Timestamp.now().toDate(),
             });
 
