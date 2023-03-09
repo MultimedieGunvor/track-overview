@@ -4,6 +4,8 @@ import ShowWagons from "../components/ShowWagons";
 import SelectStation from "../components/SelectStation";
 import OtherStation from "../components/OtherStation";
 import { useState } from "react";
+import excel from "../graphics/Excel1.svg";
+import print from "../graphics/Print.svg";
 
 
 export default function Station() {
@@ -18,15 +20,23 @@ export default function Station() {
     })
         
     return (
-            <>
+        <>
             <SelectStation />
+            <div className="buttons">
+                <div className="excel button">
+                    <img src={excel} alt="Export to Excel" />
+                </div>
+                <div className="print button">
+                    <img src={print} alt="Print page" />
+                </div>
+            </div>
             <AddWagons />
             {station === 'Alnabru' ? (
                 <ShowWagons />
             ) : (
                 <OtherStation />
             )}
-            </> 
+        </> 
 
     )
 }

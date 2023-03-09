@@ -15,7 +15,7 @@ export default function SelectStation () {
 
     return (
         <div className="select">
-            <legend>{value}</legend>
+            {/* <legend>{value}</legend> */}
             <select value={value} onChange={handleChange}>
                 <option value="Alnabru">Alnabru</option>
                 <option value="Trondheim">Trondheim</option>

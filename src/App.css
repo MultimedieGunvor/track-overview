@@ -153,22 +153,52 @@ button span {
 }
  /* --- End of header styling --- */
 
+/* --- Select styling --- */
+.select {
+  background-color: var(--darkViolet);
+}
+.select legend {
+  color: var(--lightViolet);
+}
+.select select {
+  background-color: var(--lightViolet);
+  color: var(--darkViolet);
+  border-radius: 20px;
+  padding: 5px 8px;
+}
+
+/* --- Buttons styling --- */
+.buttons {
+  display: flex;
+  background-color: var(--darkViolet);
+  padding: 10px 0;
+}
+.button {
+  width: 90px;
+  padding: 3px 0;
+  margin: 0 5px;
+  border: 1px solid var(--mediumViolet);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 /* --- Content styling --- */
 .content {
-  max-width: 1900px;
+  min-width: 1900px;
   margin: 0 auto;
-  padding: 3rem 20px;
+  /* padding: 3rem 20px; */
 }
 
 .content h2 {
   margin-bottom: 1rem;
 }
 
-.content a {
+/* .content a {
   color: #cc3852;
   margin-right: 10px;
-}
+} */
 
 
 /* --- Backgrounds for the wagon elements --- */
@@ -209,8 +239,13 @@ td>.wagon-info {
 }
 
 /* --- Other Station styling --- */
+.other-wagons {
+  margin: 0 auto;
+}
 .position-row {
   display: flex;
+  background-color: var(--lightViolet);
+  color: var(--darkViolet);
 }
 .position-row > p {
   min-width: 90px;
@@ -221,6 +256,7 @@ td>.wagon-info {
   min-width: 90px;
   max-width: 90px;
   text-align: center;
+  color: var(--darkGrey);
 }
 .track {
   display: flex;
