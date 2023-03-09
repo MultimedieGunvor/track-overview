@@ -3,7 +3,7 @@ import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import { db } from "../firebaseConfig";
 // import DeleteWagon from "./DeleteWagon";
 import MakeWagons from "./MakeWagons";
-import Modal from "./Modal"; 
+// import Modal from "./Modal"; 
 
 // --- Gunvor is trying out a drag 'n drop solution here ---
 
@@ -14,7 +14,7 @@ export default function OtherStation () {
     // // const dragOverTrack = useRef();
 
     // const [hoverRef, isHovered] = useHover();
-    const [Hover, setHover] = useState(null);
+    // const [Hover, setHover] = useState(null);
 
     const [Wagons, SetWagons] = useState([]);
     useEffect(() => {
@@ -31,24 +31,12 @@ export default function OtherStation () {
     }, []);
 
 
-    // --- Handling info-modal for wagons ---
-    
-    // const [hoveredInfo, setHoveredInfo] = useState(-1);
-
-    // const showInfoHandler = (i) => {
-    //     setHoveredInfo(i);
-    //     // console.log(i);
-    // }
-    // const hideInfoHandler = () => {
-    //     setHoveredInfo(-1);
-    // }
- 
+    // --- Handling info-modal for wagons --- 
 
     // // --- Locate the items to be dragged --- 
     // const dragStart = (e, position) => { // (e, position, track)
     //     dragItem.current = position;
     //     //dragTrack.current = track;
-    //     hideInfoHandler();
     //     // console.log(e.target.innerHTML);
     // };
  
@@ -93,11 +81,12 @@ export default function OtherStation () {
 
     
 
-    return (
-                    
+    return (                    
         <div className="other-wagons">
-            {/* <MakeWagons wagons={Wagons} track="r43"/> */}
-            <div className="track">
+            <MakeWagons wagons={Wagons} track="c14" />
+            <MakeWagons wagons={Wagons} track="r43" />
+            <MakeWagons wagons={Wagons} track="c31" />
+            {/* <div className="track">
                 <p>C14</p>
                 {Wagons.length !== 0 ? (
                     Wagons.map( 
@@ -108,12 +97,6 @@ export default function OtherStation () {
                                 {setHover(i);
                                 console.log(Hover)}}
                             onMouseLeave ={() => setHover(false)}
-                            // ref={hoverRef}
-                            // onMouseEnter={() => ShowInfoHandler(i)} 
-                            // onMouseLeave={HideInfoHandler}
-                            // onDragStart={(e) => DragStart(e, i)} // --- dragStart(e, i, track), maybe?
-                            // onDragEnter={(e) => DragEnter(e, i)} // --- dragStart(e, i, track), maybe?
-                            // onDragEnd={DragDrop(Wagons)}
                             draggable> 
                                 <p className={`${wagon.color} ${wagon.color}-${wagon.damage}`}>{wagon.shortId}</p>
                                 {Hover === i ? (<Modal props={wagon}/>) : ("") }
@@ -128,7 +111,7 @@ export default function OtherStation () {
                 ) : (
                     <p>No wagons in this track</p>
                 )}
-            </div>
+            </div> */}
         </div>
     );
 };

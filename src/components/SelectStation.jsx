@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 
 export default function SelectStation () {
@@ -12,15 +12,6 @@ export default function SelectStation () {
         console.log(sessionStorage);
         window.dispatchEvent(new Event("storage")); 
     };
-
-
-    // useEffect(() => { // --- Er den her overhovedet nødvendig? Bliver den brugt?
-    //     const timer = setTimeout(() => {
-    //         sessionStorage.setItem(key, 'Alnabru');
-    //         console.log(sessionStorage);
-    //     }, 3);
-    //     return () => clearTimeout(timer);
-    // }, []);
 
     return (
         <div className="select">
