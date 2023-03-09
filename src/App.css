@@ -44,7 +44,7 @@ header {
 .nav-area {
   display: flex;
   align-items: center;
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 10px 20px;
 }
@@ -209,26 +209,44 @@ td>.wagon-info {
 }
 
 /* --- Other Station styling --- */
+.position-row {
+  display: flex;
+}
+.position-row > p {
+  min-width: 90px;
+  max-width: 90px;
+  text-align: center;
+}
+.track-column {
+  min-width: 90px;
+  max-width: 90px;
+  text-align: center;
+}
 .track {
   display: flex;
   margin-bottom: 10px;
 }
-/* .track > div {
-  display:  flex;
-} */
+.track-name {
+  min-width: 90px;
+  max-width: 90px;
+  text-align: center;
+}
 .wagons {
   cursor: default;
   position: relative;
   /* width: 90px; */
 }
 .wagons > p {
-  width: 90px;
+  /* width: 90px; */
+  min-width: 90px;
+  max-width: 90px;
   background-size: 90px 21px;
   text-align: center;
 }
 .empty {
   cursor: default;
-  width: 90px;
+  min-width: 90px;
+  max-width: 90px;
 }
 
 .wagons > .wagon-info {

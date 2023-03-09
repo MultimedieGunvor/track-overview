@@ -83,6 +83,30 @@ export default function OtherStation () {
 
     return (                    
         <div className="other-wagons">
+            <div className="position-row">
+                <p>Position</p>
+                <p>01</p>
+                <p>02</p>
+                <p>03</p>
+                <p>04</p>
+                <p>05</p>
+                <p>06</p>
+                <p>07</p>
+                <p>08</p>
+                <p>09</p>
+                <p>10</p>
+                <p>11</p>
+                <p>12</p>
+                <p>13</p>
+                <p>14</p>
+                <p>15</p>
+                <p>16</p>
+                <p>17</p>
+                <p>18</p>
+                <p>19</p>
+                <p>20</p>
+            </div>
+            <div className="track-column">Track</div>
             <MakeWagons wagons={Wagons} track="c14" />
             <MakeWagons wagons={Wagons} track="r43" />
             <MakeWagons wagons={Wagons} track="c31" />
