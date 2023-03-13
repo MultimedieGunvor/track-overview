@@ -69,7 +69,7 @@ export default function OtherStation () {
             dragItem.current = null;
             dragOverItem.current = null;
             // dragTrack.current = null;
-            // dragOverTrack = null;
+            // dragOverTrack.current = null;
             copyWagons.forEach((element, index) => {
                 element.position = index + 1;                
             });

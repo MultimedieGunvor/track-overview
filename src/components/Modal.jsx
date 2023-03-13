@@ -3,15 +3,15 @@ import DeleteWagon from "./DeleteWagon";
 
 const Modal = ({props}) => {
     return (
-        <div className="wagon-info" style={{fontSize: '12px'}}>
+        <div className={`wagon-info ${props.damage}`} style={{fontSize: '12px'}}>
             <p>Track: {props.track.toUpperCase()}</p>
             <p>Position: {props.position}</p>
             <p>Destination: {props.destination}</p>
             <p>ID: {props.wagonId}</p>
             <p>Comments: {props.comment}</p>
             <p>Litra: {props.litra}</p>
-            <p>Damage: {props.damage}</p>
-            <DeleteWagon id={props.id}/>
+            <p>Damage: {props.damage.toUpperCase()}</p>
+            <DeleteWagon id={props.id}/> {/*Insert NavHashLink button. Check GitHub to see how*/}
         </div>
     );
 };

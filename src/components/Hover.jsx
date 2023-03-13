@@ -1,18 +1,5 @@
 import { useState, useRef, useEffect } from "react";
 
-// export function ShowInfoHandler(i) {
-//     const [hoveredInfo, setHoveredInfo] = useState(-1);
-//     setHoveredInfo(i);
-//     console.log(hoveredInfo);
-//     return hoveredInfo;
-// };
-
-// export function HideInfoHandler() {
-//     setHoveredInfo(-1);
-//     console.log(hoveredInfo);
-//     return hoveredInfo;
-// };
-
 export function useHover() {
     const [value, setValue] = useState(false);
     const ref = useRef(null);

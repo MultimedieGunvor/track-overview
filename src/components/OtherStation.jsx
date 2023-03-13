@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import { db } from "../firebaseConfig";
-// import DeleteWagon from "./DeleteWagon";
 import MakeWagons from "./MakeWagons";
-// import Modal from "./Modal"; 
 
 // --- Gunvor is trying out a drag 'n drop solution here ---
 
@@ -13,8 +11,6 @@ export default function OtherStation () {
     // // const dragTrack = useRef();
     // // const dragOverTrack = useRef();
 
-    // const [hoverRef, isHovered] = useHover();
-    // const [Hover, setHover] = useState(null);
 
     const [Wagons, SetWagons] = useState([]);
     useEffect(() => {
@@ -110,32 +106,6 @@ export default function OtherStation () {
             <MakeWagons wagons={Wagons} track="c14" />
             <MakeWagons wagons={Wagons} track="r43" />
             <MakeWagons wagons={Wagons} track="c31" />
-            {/* <div className="track">
-                <p>C14</p>
-                {Wagons.length !== 0 ? (
-                    Wagons.map( 
-                        (wagon, i) => wagon.track === 'c14' ? (
-                            <div className="wagons" 
-                            key={wagon.id} 
-                            onMouseEnter ={() => 
-                                {setHover(i);
-                                console.log(Hover)}}
-                            onMouseLeave ={() => setHover(false)}
-                            draggable> 
-                                <p className={`${wagon.color} ${wagon.color}-${wagon.damage}`}>{wagon.shortId}</p>
-                                {Hover === i ? (<Modal props={wagon}/>) : ("") }
-                                
-                            </div>
-                        ) : (
-                            // console.log("Other track")
-                            ""
-
-                        )                       
-                    )
-                ) : (
-                    <p>No wagons in this track</p>
-                )}
-            </div> */}
         </div>
     );
 };
