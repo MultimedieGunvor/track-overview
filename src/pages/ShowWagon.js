@@ -1,5 +1,12 @@
+import WagonDetails from "../components/WagonDetails";
+
 const ShowWagon = () => {
-    return <h2>Show Wagon</h2>;
+    return (
+        <>
+            <h2>Show wagon</h2>
+            <WagonDetails />
+        </>
+    )
 };
   
 export default ShowWagon;

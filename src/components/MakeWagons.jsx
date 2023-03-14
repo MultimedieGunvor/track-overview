@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Modal from "./Modal";
 import { dragStart, dragEnter, drop } from "./DragDrop";
 
@@ -18,6 +19,10 @@ export default function MakeWagons ({wagons, track}) {
 
     const [Hover, setHover] = useState(null); 
 
+
+    const navigate = useNavigate();
+
+
     return (
         <div className="track">
             <p className="track-name">{track.toUpperCase()}</p>
@@ -35,6 +40,14 @@ export default function MakeWagons ({wagons, track}) {
                 onDragEnd={drop} // --- {drop(wagons)}
                 draggable>
                     <p className={`${wagon.color} ${wagon.color}-${wagon.damage}`}
+                    onDoubleClick= {() => navigate("/show-wagon", 
+                    {state: {track: wagon.track, // --- Maybe needs an extra set of curly braces? Do that, if it doesn't work.
+                        position: wagon.position,
+                        destination: wagon.destination,
+                        id: wagon.wagonId,
+                        comments: wagon.comments,
+                        litra: wagon.litra,
+                        damage: wagon.damage}})}
                     >{wagon.shortId}</p>
                     {Hover === i ? (<Modal props={wagon}/>) : ("")} 
                 </div>

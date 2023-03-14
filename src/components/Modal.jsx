@@ -11,7 +11,7 @@ const Modal = ({props}) => {
             <p>Comments: {props.comment}</p>
             <p>Litra: {props.litra}</p>
             <p>Damage: {props.damage.toUpperCase()}</p>
-            <DeleteWagon id={props.id}/> {/*Insert NavHashLink button. Check GitHub to see how*/}
+            <DeleteWagon id={props.id}/>
         </div>
     );
 };

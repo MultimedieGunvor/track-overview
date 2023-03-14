@@ -12,7 +12,7 @@ export default function AddWagons () {
         damage: "",
         comment: "",
         track: "",
-        position:"", // --- Maybe if we remove the quotation marks, it won't change the numbers to a string??
+        position: "", // --- Maybe if we remove the quotation marks, it won't change the numbers to a string??
         createdAt: Timestamp.now().toDate(),
     });
     
