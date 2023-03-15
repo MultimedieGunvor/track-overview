@@ -1,109 +1,128 @@
 import { useLocation } from "react-router-dom";
-import { useState } from "react";
+// import { useState } from "react";
+import GetAlias from "./GetAlias";
 
-export default function WagonDetails() {
+export default function WagonDetails({place}) {
     const location = useLocation();
+    // console.log("location: " + location);
     const {state} = location;
-    const wagonClass = state.id.slice(4, 8);
+    // console.log("state: " + state);
+    
+        
+    const track = state === null ? "" : state.track;
+    const color = state === null ? "" : state.color.toLowerCase();
+    const alias = GetAlias(color);
+    const position = state === null ? "" : state.position;
+    const destination = state === null ? "" : state.destination;
+    const id = state === null ? "" : state.id;
+    const comments = state === null ? "" : state.comments;
+    const litra = state === null ? "" : state.litra;
+    const damage = state === null ? "" : state.damage;
+    const constType = state === null ? "" : "Lorem ipsum";
+    const wgnHolder = state === null ? "" : "2424";
+    const curStat = state === null ? "" : "Arrived";
+    const tara = state === null ? "" : "35.0";
+    const maxLoad = state === null ? "" : "100.0";
+    const length = state === null ? "" : "34.2";
+    const axles = state === null ? "" : "6";
+    const speed = state === null ? "" : "120";
+    const load = state === null ? "" : "24.0";
+    const interOp = state === null ? "" : "31";
+    const iOperabitlity = state === null ? "" : "Freight";
+    const crit = state === null ? "" : "74";
+    const seqNo = state === null ? "" : "33";
+    const ctl = state === null ? "" : "2";
+    console.log(track, position, destination, id, comments, litra, damage, color, alias);
 
-    const [place, setPlace] = useState(); 
-    window.addEventListener('storage', () => {
-        const currentPlace = sessionStorage.getItem('station');
-        console.log('Place is: ' + currentPlace);
-        currentPlace === undefined ? (
-            setPlace('Alnabru')
-        ) : (
-            setPlace(currentPlace)
-        );
-        // setPlace(currentPlace);
-        window.removeEventListener('storage');
-    })
+    const wagonClass = state === null ? "" : state.id.slice(4, 8);
+    // console.log(wagonClass);
+    console.log("alias: " + alias);
+
     // --- Write a function to determine the wagon's alias based on its litra
-    console.log(state.id);
 
     return (
-        <div id="start">
+        <div>
             <h2>Wagon details</h2>
             <div className="wgn-info-box">
                 <div className="detail-item">
                     <h3>Wagon no</h3>
-                    <p>{state.id}</p>
+                    <p>{id}</p>
                 </div>
                 <div className="detail-item">
                     <h3>Wagon litra</h3>
-                    <p>{state.litra}</p>
+                    <p>{litra}</p>
                 </div>
                 <div className="detail-item">
                     <h3>Construction type 1</h3>
-                    <p>Lorem ipsum</p>
+                    <p>{constType}</p>
                 </div>
                 <div className="detail-item">
                     <h3>Current status</h3>
-                    <p>Arrived</p>
+                    <p>{curStat}</p>
                 </div>
                 <div className="detail-item">
                     <h3>Wagon holder</h3>
-                    <p>2424</p>
+                    <p>{wgnHolder}</p>
                 </div>
                 <div className="detail-item">
                     <h3>Wagon alias</h3>
-                    <p>{state.litra}</p>
+                    <p>{alias}</p>
                 </div>
                 <div className="detail-item">
                     <h3>Construction type 2</h3>
-                    <p>Lorem ipsum</p>
+                    <p>{constType}</p>
                 </div>
                 <div className="detail-item">
                     <h3>Current place</h3>
-                    <p>{place} {state.track}</p>
+                    <p>{place} {track}</p>
                 </div>
                 <div className="detail-item">
                     <h3>Wagon owner</h3>
-                    <p>2424</p>
+                    <p>{wgnHolder}</p>
                 </div>
                 <div className="detail-item">
                     <h3>Tara (T)</h3>
-                    <p>35.0</p>
+                    <p>{tara}</p>
                 </div>
                 <div className="detail-item">
                     <h3>Max load (T)</h3>
-                    <p>100.0</p>
+                    <p>{maxLoad}</p>
                 </div>
                 <div className="detail-item">
                     <h3>Length (m)</h3>
-                    <p>34.2</p>
+                    <p>{length}</p>
                 </div>
                 <div className="detail-item">
                     <h3>Axles</h3>
-                    <p>6</p>
+                    <p>{axles}</p>
                 </div>
                 <div className="detail-item">
                     <h3>Speed</h3>
-                    <p>120</p>
+                    <p>{speed}</p>
                 </div>
                 <div className="detail-item">
                     <h3>Current destination</h3>
-                    <p>{state.destination}</p>
+                    <p>{destination}</p>
                 </div>
                 <div className="detail-item">
                     <h3>Load (T)</h3>
-                    <p>24.0</p>
+                    <p>{load}</p>
                 </div>
                 <div className="detail-item">
                     <h3>Interop</h3>
-                    <p>31</p>
+                    <p>{interOp}</p>
                 </div>
                 <div className="detail-item">
                     <h3>Interoperability</h3>
-                    <p>Freight</p>
+                    <p>{iOperabitlity}</p>
                 </div>
                 <div className="detail-item">
                     <h3>Crit</h3>
-                    <p>74</p>
+                    <p>{crit}</p>
                 </div>
                 <div className="detail-item">
                     <h3>Rail country</h3>
-                    <p>Lorem ipsum</p>
+                    <p>{constType}</p>
                 </div>
                 <div className="detail-item">
                     <h3>Wagon class</h3>
@@ -111,15 +130,15 @@ export default function WagonDetails() {
                 </div>
                 <div className="detail-item">
                     <h3>Class litra</h3>
-                    <p>{state.litra}</p>
+                    <p>{litra}</p>
                 </div>
                 <div className="detail-item">
                     <h3>Seq no</h3>
-                    <p>33</p>
+                    <p>{seqNo}</p>
                 </div>
                 <div className="detail-item">
                     <h3>Ctl</h3>
-                    <p>2</p>
+                    <p>{ctl}</p>
                 </div>
             </div>
             <div className="wgn-data">

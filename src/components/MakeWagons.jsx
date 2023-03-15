@@ -41,7 +41,8 @@ export default function MakeWagons ({wagons, track}) {
                 draggable>
                     <p className={`${wagon.color} ${wagon.color}-${wagon.damage}`}
                     onDoubleClick= {() => navigate("/show-wagon", 
-                    {state: {track: wagon.track, // --- Maybe needs an extra set of curly braces? Do that, if it doesn't work.
+                    {state: {track: wagon.track, 
+                        color: wagon.color,
                         position: wagon.position,
                         destination: wagon.destination,
                         id: wagon.wagonId,
