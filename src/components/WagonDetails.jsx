@@ -38,7 +38,7 @@ export default function WagonDetails({place}) {
     // --- Write a function to determine the wagon's alias based on its litra
 
     return (
-        <div>
+        <div className="wgn-container">
             <h2>Wagon details</h2>
             <div className="wgn-info-box">
                 <div className="detail-item">

@@ -17,7 +17,7 @@ const ShowWagon = () => {
 
     return (
         <>
-            <h2>Show wagon</h2>
+            {/* <h2>Show wagon</h2> */}
             {/* Noget med if !state, så vis addwagon?? */}
             <WagonDetails place={Place}/> 
         </>

@@ -304,3 +304,19 @@ td>.wagon-info {
 .wagons > .critical {
   background-color: var(--critical);
 }
+
+/* Styling for ShowWagon */
+
+.wgn-container {
+  max-width: 1200px;
+}
+.wgn-info-box {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: var(--xtraLightGrey);
+  border: 1px solid var(--lightGrey);
+}
+.detail-item > p {
+  background-color: white;
+  border: 1px solid var(--lightGrey);
+}
