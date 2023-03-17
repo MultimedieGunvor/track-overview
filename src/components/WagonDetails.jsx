@@ -10,8 +10,7 @@ export default function WagonDetails({place}) {
     
         
     const track = state === null ? "" : state.track;
-    const color = state === null ? "" : state.color.toLowerCase();
-    const alias = GetAlias(color);
+    const alias = state === null ? "" : GetAlias(state);
     const position = state === null ? "" : state.position;
     const destination = state === null ? "" : state.destination;
     const id = state === null ? "" : state.id;
@@ -32,11 +31,9 @@ export default function WagonDetails({place}) {
     const crit = state === null ? "" : "74";
     const seqNo = state === null ? "" : "33";
     const ctl = state === null ? "" : "2";
-    console.log(track, position, destination, id, comments, litra, damage, color, alias);
+    console.log(track, position, destination, id, comments, litra, damage, alias);
 
     const wagonClass = state === null ? "" : state.id.slice(4, 8);
-    // console.log(wagonClass);
-    console.log("alias: " + alias);
 
     // --- Write a function to determine the wagon's alias based on its litra
 
